@@ -50,6 +50,11 @@ export function Contact() {
                     {company.phone}
                   </a>
                 </dd>
+                <dd className="mt-1 font-medium text-navy">
+                  <a href={`tel:${company.landlineHref}`} dir="ltr" className="hover:text-gold">
+                    {company.landline}
+                  </a>
+                </dd>
               </div>
             </div>
 

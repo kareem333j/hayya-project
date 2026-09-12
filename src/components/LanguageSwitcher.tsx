@@ -11,14 +11,14 @@ export function LanguageSwitcher({
   const { lang, setLang } = useLanguage();
 
   const base =
-    "px-2.5 py-1 text-xs font-bold tracking-[0.14em] rounded-[3px] transition-colors duration-200";
+    "px-3 text-xs font-bold tracking-[0.14em] rounded-[3px] transition-colors duration-200 flex items-center";
 
   return (
     <div
       role="group"
       aria-label="Language"
       className={cn(
-        "inline-flex items-center gap-0.5 rounded-sm border p-0.5",
+        "inline-flex items-stretch gap-0.5 rounded-sm border p-0.5",
         tone === "dark" ? "border-navy/20" : "border-on-navy/25",
         className,
       )}

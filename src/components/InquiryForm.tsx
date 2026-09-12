@@ -91,17 +91,21 @@ export function InquiryForm() {
   ];
 
   return (
-    <form onSubmit={onSubmit} noValidate className="border border-border bg-card p-6 md:p-9">
-      <div className="grid gap-5 sm:grid-cols-2">
+    <form onSubmit={onSubmit} noValidate className="relative overflow-hidden rounded-3xl border border-white/60 bg-white/60 p-6 backdrop-blur-xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] transition-all duration-500 hover:shadow-[0_20px_50px_-15px_rgba(212,175,55,0.1)] md:p-10">
+      
+      {/* Decorative gradient inside the form */}
+      <div className="pointer-events-none absolute -end-20 -top-20 h-64 w-64 rounded-full bg-gold/5 blur-[80px]" />
+      
+      <div className="relative z-10 grid gap-6 sm:grid-cols-2">
         {fields.map((field) => (
           <div key={field.key} className={field.key === "quantity" ? "sm:col-span-1" : undefined}>
             <label
               htmlFor={field.key}
-              className="block text-[0.7rem] font-bold tracking-[0.14em] text-navy/70 uppercase"
+              className="block text-[0.7rem] font-bold tracking-[0.14em] text-navy/70 uppercase ms-1"
             >
               {field.label}
               {!field.required && (
-                <span className="ms-2 font-medium tracking-normal text-muted-foreground normal-case">
+                <span className="ms-2 font-medium tracking-normal text-navy/40 normal-case">
                   ({f.optional})
                 </span>
               )}
@@ -115,12 +119,12 @@ export function InquiryForm() {
               aria-invalid={Boolean(errors[field.key])}
               aria-describedby={errors[field.key] ? `${field.key}-error` : undefined}
               className={cn(
-                "mt-2 h-11 w-full rounded-sm border bg-background px-3 text-sm text-foreground transition-colors outline-none focus:border-gold",
-                errors[field.key] ? "border-destructive" : "border-input",
+                "mt-2.5 h-14 w-full rounded-xl border bg-navy/5 px-4 py-3.5 text-sm text-navy transition-all duration-300 outline-none placeholder:text-navy/40 hover:border-gold/40 hover:bg-white focus:border-gold focus:bg-white focus:ring-4 focus:ring-gold/20",
+                errors[field.key] ? "border-destructive focus:border-destructive focus:ring-destructive/20" : "border-navy/10",
               )}
             />
             {errors[field.key] && (
-              <p id={`${field.key}-error`} className="mt-1.5 text-xs text-destructive">
+              <p id={`${field.key}-error`} className="mt-1.5 ms-1 text-xs font-medium text-destructive">
                 {errors[field.key]}
               </p>
             )}
@@ -130,7 +134,7 @@ export function InquiryForm() {
         <div className="sm:col-span-2">
           <label
             htmlFor="message"
-            className="block text-[0.7rem] font-bold tracking-[0.14em] text-navy/70 uppercase"
+            className="block text-[0.7rem] font-bold tracking-[0.14em] text-navy/70 uppercase ms-1"
           >
             {f.message}
           </label>
@@ -143,41 +147,47 @@ export function InquiryForm() {
             aria-invalid={Boolean(errors.message)}
             aria-describedby={errors.message ? "message-error" : undefined}
             className={cn(
-              "mt-2 w-full rounded-sm border bg-background p-3 text-sm text-foreground transition-colors outline-none focus:border-gold",
-              errors.message ? "border-destructive" : "border-input",
+              "mt-2.5 w-full rounded-xl border bg-navy/5 p-4 text-sm text-navy transition-all duration-300 outline-none placeholder:text-navy/40 hover:border-gold/40 hover:bg-white focus:border-gold focus:bg-white focus:ring-4 focus:ring-gold/20",
+              errors.message ? "border-destructive focus:border-destructive focus:ring-destructive/20" : "border-navy/10",
             )}
           />
           {errors.message && (
-            <p id="message-error" className="mt-1.5 text-xs text-destructive">
+            <p id="message-error" className="mt-1.5 ms-1 text-xs font-medium text-destructive">
               {errors.message}
             </p>
           )}
         </div>
       </div>
 
-      <button
-        type="submit"
-        disabled={status === "sending"}
-        className={cn(brandButton({ variant: "gold", size: "lg" }), "mt-7 w-full sm:w-auto")}
-      >
-        {status === "sending" && <Loader2 className="h-4 w-4 animate-spin" />}
-        {f.submit}
-      </button>
+      <div className="relative z-10 mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+        <button
+          type="submit"
+          disabled={status === "sending"}
+          className={cn(
+            brandButton({ variant: "gold", size: "lg" }),
+            "w-full sm:w-auto shadow-[0_10px_30px_-10px_rgba(212,175,55,0.4)] transition-all duration-300 hover:shadow-[0_15px_40px_-10px_rgba(212,175,55,0.6)]"
+          )}
+        >
+          {status === "sending" && <Loader2 className="h-4 w-4 animate-spin me-2" />}
+          {f.submit}
+        </button>
+        <p className="text-xs leading-relaxed text-navy-muted/60 text-center sm:text-start max-w-xs">
+          {f.notice}
+        </p>
+      </div>
 
-      <p className="mt-4 text-xs leading-relaxed text-muted-foreground">{f.notice}</p>
-
-      <div aria-live="polite" className="mt-4">
+      <div aria-live="polite" className="relative z-10 mt-6">
         {status === "sent" && (
-          <p className="flex items-start gap-2 border border-leaf/40 bg-leaf/8 p-3 text-sm text-navy">
-            <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-leaf" />
-            {f.success}
-          </p>
+          <div className="flex animate-in fade-in slide-in-from-bottom-2 items-start gap-3 rounded-xl border border-leaf/30 bg-leaf/10 p-4 shadow-sm">
+            <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-leaf" />
+            <p className="text-sm font-medium text-navy">{f.success}</p>
+          </div>
         )}
         {status === "error" && Object.keys(errors).length > 0 && (
-          <p className="flex items-start gap-2 border border-destructive/40 bg-destructive/8 p-3 text-sm text-navy">
-            <AlertCircle className="mt-0.5 h-4 w-4 shrink-0 text-destructive" />
-            {Object.values(errors)[0]}
-          </p>
+          <div className="flex animate-in fade-in slide-in-from-bottom-2 items-start gap-3 rounded-xl border border-destructive/30 bg-destructive/10 p-4 shadow-sm">
+            <AlertCircle className="mt-0.5 h-5 w-5 shrink-0 text-destructive" />
+            <p className="text-sm font-medium text-navy">{Object.values(errors)[0]}</p>
+          </div>
         )}
       </div>
     </form>

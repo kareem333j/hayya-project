@@ -1,16 +1,17 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
-  Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { cn } from "@/lib/utils";
 
 function NotFoundComponent() {
   return (
@@ -22,12 +23,12 @@ function NotFoundComponent() {
           The page you're looking for doesn't exist or has been moved.
         </p>
         <div className="mt-6">
-          <Link
-            to="/"
+          <a
+            href="/"
             className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
             Go home
-          </Link>
+          </a>
         </div>
       </div>
     </div>
@@ -118,13 +119,56 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
+function RouterProgressBar() {
+  const isLoading = useRouterState({ select: (s) => s.status === 'pending' });
+  const [progress, setProgress] = useState(0);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    if (isLoading) {
+      setVisible(true);
+      setProgress(10);
+      const interval = setInterval(() => {
+        setProgress((prev) => (prev < 90 ? prev + 5 : prev));
+      }, 150);
+      return () => clearInterval(interval);
+    } else {
+      setProgress(100);
+      const timeout = setTimeout(() => {
+        setVisible(false);
+        setTimeout(() => setProgress(0), 200); // reset after fade out
+      }, 300);
+      return () => clearTimeout(timeout);
+    }
+  }, [isLoading]);
+
+  if (!visible && progress === 0) return null;
+
+  return (
+    <div
+      className={cn(
+        "fixed top-0 start-0 h-1 bg-gold z-[99999] pointer-events-none transition-all duration-300 ease-out shadow-[0_0_10px_oklch(0.755_0.13_76)]",
+        visible ? "opacity-100" : "opacity-0"
+      )}
+      style={{ width: `${progress}%` }}
+    />
+  );
+}
+
+import { ScrollToTop } from "../components/ScrollToTop";
+import { SplashScreen } from "../components/ui/SplashScreen";
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
   return (
     <QueryClientProvider client={queryClient}>
+      <SplashScreen />
+      <RouterProgressBar />
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
+      <ScrollToTop />
     </QueryClientProvider>
   );
 }
+

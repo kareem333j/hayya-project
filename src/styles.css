@@ -86,6 +86,32 @@
   --ring: oklch(0.755 0.13 76);
 }
 
+/* ── Creative keyframes ──────────────────────────────────────── */
+
+@keyframes ken-burns {
+  0%   { transform: scale(1)    translate(0, 0); }
+  50%  { transform: scale(1.04) translate(-0.6%, -0.4%); }
+  100% { transform: scale(1)    translate(0, 0); }
+}
+
+@keyframes gold-shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-6px); }
+}
+
+@keyframes pulse-ring {
+  0%   { box-shadow: 0 0 0 0    oklch(0.755 0.13 76 / 0.45); }
+  70%  { box-shadow: 0 0 0 10px oklch(0.755 0.13 76 / 0); }
+  100% { box-shadow: 0 0 0 0    oklch(0.755 0.13 76 / 0); }
+}
+
+/* ── Base ────────────────────────────────────────────────────── */
+
 @layer base {
   * {
     border-color: var(--color-border);
@@ -94,6 +120,8 @@
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 6rem;
+    overflow-x: hidden;
+    max-width: 100%;
   }
 
   body {
@@ -101,6 +129,28 @@
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    max-width: 100%;
+    position: relative;
+  }
+
+  /* Animated gold accent line pinned to the very top of the viewport */
+  body::before {
+    content: "";
+    position: fixed;
+    inset-inline: 0;
+    top: 0;
+    height: 3px;
+    background: linear-gradient(
+      90deg,
+      oklch(0.755 0.13 76)  0%,
+      oklch(0.86  0.08 82)  50%,
+      oklch(0.755 0.13 76) 100%
+    );
+    background-size: 200% auto;
+    animation: gold-shimmer 4s linear infinite;
+    z-index: 9999;
+    pointer-events: none;
   }
 
   [dir="rtl"] body {
@@ -128,6 +178,8 @@
   }
 }
 
+/* ── Utilities ───────────────────────────────────────────────── */
+
 @utility container-hayya {
   margin-inline: auto;
   width: 100%;
@@ -140,9 +192,9 @@
   align-items: center;
   gap: 0.625rem;
   font-family: var(--font-sans);
-  font-size: 0.6875rem;
+  font-size: 1.975rem;
   font-weight: 700;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--gold);
 }
@@ -160,13 +212,52 @@
   transform: none;
 }
 
+/* Hero image slow ken-burns drift */
+@utility hero-img {
+  animation: ken-burns 20s ease-in-out infinite;
+}
+
+/* Gentle floating for icons / decorative elements */
+@utility float {
+  animation: float-y 3s ease-in-out infinite;
+}
+
+/* Pulsing gold ring for CTA/highlight */
+@utility pulse-gold {
+  animation: pulse-ring 2.5s ease-out infinite;
+}
+
+/* Animated gold shimmer text */
+@utility text-gold-shimmer {
+  background: linear-gradient(
+    90deg,
+    oklch(0.755 0.13 76)  0%,
+    oklch(0.92  0.1  82)  40%,
+    oklch(0.755 0.13 76) 80%
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gold-shimmer 3s linear infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
+
   .reveal {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+
+  body::before,
+  .hero-img,
+  .float,
+  .pulse-gold,
+  .text-gold-shimmer {
+    animation: none;
   }
 }

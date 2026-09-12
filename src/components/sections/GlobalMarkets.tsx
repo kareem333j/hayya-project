@@ -2,19 +2,21 @@ import portImage from "@/assets/export-port.jpg";
 import { useLanguage } from "@/lib/language";
 import { Reveal } from "@/components/Reveal";
 import { BrandLink } from "@/components/BrandButton";
+import { Image } from "@/components/Image";
 
 export function GlobalMarkets() {
   const { t } = useLanguage();
 
   return (
     <section className="relative isolate overflow-hidden bg-navy-deep py-24 md:py-32">
-      <img
+      <Image
         src={portImage}
         alt="Container port at dusk"
         width={1920}
         height={1088}
         loading="lazy"
         className="absolute inset-0 -z-20 h-full w-full object-cover opacity-30"
+        fallbackClassName="absolute inset-0 -z-20 h-full w-full"
       />
       <div
         className="absolute inset-0 -z-10"

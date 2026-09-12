@@ -12,6 +12,7 @@ import { GlobalMarkets } from "@/components/sections/GlobalMarkets";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/Footer";
+import { PromoVideo } from "@/components/sections/PromoVideo";
 
 const title = "HAYYA | Egyptian Agricultural Products Export";
 const description =
@@ -59,6 +60,7 @@ function HomePage() {
         <TrustBar />
         <About />
         <Products />
+        <PromoVideo />
         <Process />
         <WhyHayya />
         <Partnerships />

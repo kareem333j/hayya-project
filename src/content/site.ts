@@ -24,9 +24,14 @@ export const company = {
   emailIsValid: true,
   phone: "+20 10 60010040",
   phoneHref: "+201060010040",
+  landline: "0220301452",
+  landlineHref: "0220301452",
+  facebook: "https://www.facebook.com/share/1GL3ZtikM8/?mibextid=wwXIfr",
+  instagram: "https://www.instagram.com/hayya.egypt",
+  linkedin: "https://www.linkedin.com/company/hayya-engineering-and-development",
   location: { en: "El Shorouk City, Egypt", ar: "مدينة الشروق، مصر" },
   /**
-   * Inquiry form destination. When Lovable-managed email is enabled, the form
+   * Inquiry form destination. When email is enabled, the form
    * sends a notification to the company email above.
    */
   formEndpoint: null as string | null,
@@ -119,7 +124,7 @@ export const partners = [
     name: "Tahya Misr",
     nameAr: "تحيا مصر",
     en: "A business and contractual relationship supporting HAYYA's agricultural sourcing and supply operations.",
-    ar: "علاقة عمل وتعاقدية تدعم عمليات التوريد الزراعي والإمداد لدى هيا.",
+    ar: "علاقة عمل وتعاقدية تدعم عمليات التوريد الزراعي والإمداد لدى هيّا.",
   },
   {
     id: "el-watanya",
@@ -140,6 +145,7 @@ export const copy = {
       home: "Home",
       about: "About Us",
       products: "Products",
+      services: "Services",
       why: "Why HAYYA",
       partnerships: "Partnerships",
       contact: "Contact",
@@ -166,20 +172,26 @@ export const copy = {
     ],
     about: {
       label: "About HAYYA",
-      title: "Connecting Egyptian Agriculture With Global Markets",
-      body: "HAYYA is an Egyptian agricultural export company focused on connecting high-quality Egyptian produce with international buyers. We work to build reliable supply relationships, maintain consistent product standards, and provide professional export solutions for our partners.",
+      title: "Quality is Our Motto... Now Globally Certified! 🌟",
+      body: "Today, we are proud to share that Hayya for Engineering & Development has obtained the ISO 9001:2015 global certification. Why does this matter to you as a client?",
       cta: "Learn More About HAYYA",
       points: [
-        "Sourcing relationships across Egyptian agricultural regions",
-        "Consistent product standards agreed with each buyer",
-        "Professional, responsive communication throughout the process",
+        "Ensures you are dealing with a management system following the strictest international standards.",
+        "Reflects our commitment to continuous development in our import and real estate marketing services.",
+        "Confirms that your trust in us is built on professional and documented foundations.",
       ],
+      conclusion: "We grow with your trust, and the best is yet to come, God willing! 🚀",
     },
     products: {
       label: "Our Products",
       title: "Egyptian Produce, Prepared for Global Markets",
       sub: "Product categories below are indicative. Availability depends on season and buyer specification — contact us to confirm current lines.",
       cta: "Request Information",
+    },
+    promo: {
+      label: "Our Operations",
+      title: "See HAYYA in Action",
+      sub: "Watch our short documentary to see how we source, prepare, and export our premium agricultural products to the world.",
     },
     process: {
       label: "Quality & Sourcing",
@@ -298,7 +310,8 @@ export const copy = {
       home: "الرئيسية",
       about: "من نحن",
       products: "المنتجات",
-      why: "لماذا هيا",
+      services: "خدماتنا",
+      why: "لماذا هيّا",
       partnerships: "الشراكات",
       contact: "اتصل بنا",
       quote: "اطلب عرض سعر",
@@ -308,7 +321,7 @@ export const copy = {
     hero: {
       eyebrow: "التصدير الزراعي المصري",
       title: "طازج من مصر، وموثوق حول العالم",
-      sub: "تربط هيا المنتجات الزراعية المصرية المتميزة بالأسواق الدولية من خلال توريد موثوق، وعمليات تركز على الجودة، وحلول تصدير احترافية.",
+      sub: "تربط هيّا المنتجات الزراعية المصرية المتميزة بالأسواق الدولية من خلال توريد موثوق، وعمليات تركز على الجودة، وحلول تصدير احترافية.",
       primary: "اطلب عرض سعر",
       secondary: "استعرض منتجاتنا",
       trust: "منتجات زراعية مصرية | تصدير للشركات | إمداد موثوق",
@@ -320,21 +333,27 @@ export const copy = {
       { title: "تصدير للشركات", desc: "نخدم المشترين الدوليين والشركاء التجاريين." },
     ],
     about: {
-      label: "عن هيا",
-      title: "نربط الزراعة المصرية بالأسواق العالمية",
-      body: "هيا شركة مصرية للتصدير الزراعي تركز على ربط المنتجات المصرية عالية الجودة بالمشترين الدوليين. نعمل على بناء علاقات إمداد موثوقة، والحفاظ على معايير ثابتة للمنتجات، وتقديم حلول تصدير احترافية لشركائنا.",
-      cta: "اعرف المزيد عن هيا",
+      label: "عن هيّا",
+      title: "الجودة هي شعارنا.. واليوم أصبحت موثقة عالمياً! 🌟",
+      body: "نشارككم اليوم فخرنا بحصول شركة هيا للهندسة والتطوير على شهادة الأيزو العالمية ISO 9001:2015. لماذا يهمك هذا كعميل؟",
+      cta: "اعرف المزيد عن هيّا",
       points: [
-        "علاقات توريد تمتد إلى المناطق الزراعية المصرية",
-        "معايير ثابتة للمنتجات يتم الاتفاق عليها مع كل مشترٍ",
-        "تواصل احترافي وسريع خلال جميع المراحل",
+        "يضمن لك التعامل مع منظومة إدارية تتبع أدق المعايير الدولية.",
+        "يعكس حرصنا على التطوير المستمر لخدماتنا في الاستيراد والتسويق العقاري.",
+        "يؤكد أن ثقتكم بنا مبنية على أسس احترافية وموثقة.",
       ],
+      conclusion: "نحن نكبر بثقتكم، والقادم أفضل بإذن الله! 🚀",
     },
     products: {
       label: "منتجاتنا",
       title: "محاصيل مصرية مُجهّزة للأسواق العالمية",
       sub: "فئات المنتجات التالية إرشادية، ويعتمد التوافر على الموسم ومواصفات المشتري — تواصل معنا لتأكيد الخطوط المتاحة حاليًا.",
       cta: "اطلب معلومات",
+    },
+    promo: {
+      label: "عملياتنا",
+      title: "شاهد هيّا في العمل",
+      sub: "شاهد فيلمنا الوثائقي القصير لترى كيف نقوم بتوريد وتجهيز وتصدير منتجاتنا الزراعية الممتازة إلى العالم.",
     },
     process: {
       label: "الجودة والتوريد",
@@ -352,8 +371,8 @@ export const copy = {
       ],
     },
     why: {
-      label: "لماذا هيا",
-      title: "لماذا الشراكة مع هيا",
+      label: "لماذا هيّا",
+      title: "لماذا الشراكة مع هيّا",
       items: [
         { title: "توريد موثوق", desc: "علاقات توريد زراعي قوية." },
         { title: "تركيز على الجودة", desc: "اهتمام بالطزاجة وحالة المنتج والاتساق." },
@@ -366,7 +385,7 @@ export const copy = {
     partnerships: {
       label: "الشراكات",
       title: "مبنية على علاقات عمل قوية",
-      body: "تعمل هيا من خلال علاقات عمل وتعاقدية قائمة مع جهات مصرية موثوقة، بما يدعم موثوقية التوريد الزراعي وعمليات الإمداد.",
+      body: "تعمل هيّا من خلال علاقات عمل وتعاقدية قائمة مع جهات مصرية موثوقة، بما يدعم موثوقية التوريد الزراعي وعمليات الإمداد.",
       note: "نوع العلاقة: عمل وتعاقد",
     },
     global: {
@@ -379,7 +398,7 @@ export const copy = {
       title: "تبحث عن مورّد مصري موثوق للمحاصيل الزراعية؟",
       body: "أخبرنا بما تبحث عنه وسيتواصل معك فريقنا بشأن التوافر ومتطلبات الإمداد.",
       primary: "اطلب عرض سعر",
-      secondary: "تواصل مع هيا",
+      secondary: "تواصل مع هيّا",
     },
     contact: {
       label: "اتصل بنا",
@@ -419,7 +438,7 @@ export const copy = {
       products: "المنتجات",
       contact: "اتصل بنا",
       language: "اللغة",
-      rights: "© ٢٠٢٦ هيا. جميع الحقوق محفوظة.",
+      rights: "© ٢٠٢٦ هيّا. جميع الحقوق محفوظة.",
     },
   },
 };

@@ -35,10 +35,34 @@ async function withImages(rows: Product[]): Promise<ProductWithImage[]> {
     });
   }
 
-  return rows.map((row) => ({
-    ...row,
-    displayImage: row.image_path ? (signed.get(row.image_path) ?? null) : row.image_url || null,
-  }));
+  return rows.map((row) => {
+    let displayImage = row.image_path ? (signed.get(row.image_path) ?? null) : row.image_url || null;
+    
+    if (!row.image_path) {
+      const nameEn = (row.name_en || "").toLowerCase();
+      const nameAr = (row.name_ar || "");
+      let fallback = null;
+
+      if (nameEn.includes("mango") || nameAr.includes("مانجو")) fallback = "/products/mangoes.jpg";
+      else if (nameEn.includes("tomato") || nameAr.includes("طماطم")) fallback = "/products/tomatoes.jpg";
+      else if (nameEn.includes("chili") || nameAr.includes("شطة") || nameAr.includes("حار")) fallback = "/products/chili-peppers.jpg";
+      else if (nameEn.includes("pepper") || nameAr.includes("فلفل")) fallback = "/products/bell-peppers.jpg";
+      else if (nameEn.includes("grape") || nameAr.includes("عنب")) fallback = "/products/grapes.jpg";
+      else if (nameEn.includes("pomegranate") || nameAr.includes("رمان")) fallback = "/products/pomegranates.jpg";
+      else if (nameEn.includes("guava") || nameAr.includes("جوافة")) fallback = "/products/guavas.jpg";
+      else if (nameEn.includes("strawberry") || nameAr.includes("فراولة")) fallback = "/products/strawberries.jpg";
+      else if (nameEn.includes("orange") || nameEn.includes("citrus") || nameAr.includes("برتقال")) fallback = "/products/oranges.jpg";
+      else if (nameEn.includes("cabbage") || nameAr.includes("كرنب") || nameAr.includes("ملفوف")) fallback = "/products/cabbage.jpg";
+      else if (nameEn.includes("peach") || nameAr.includes("خوخ")) fallback = "/products/peaches.jpg";
+
+      if (fallback) displayImage = fallback;
+    }
+
+    return {
+      ...row,
+      displayImage,
+    };
+  });
 }
 
 export async function fetchPublishedProducts(): Promise<ProductWithImage[]> {
