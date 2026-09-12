@@ -30,7 +30,7 @@ export function Hero() {
         }}
       />
 
-      <div className="container-hayya pt-20 sm:pt-28 md:pt-36 pb-16 md:pb-24">
+      <div className="container-hayya pt-28 sm:pt-32 md:pt-36 pb-16 md:pb-24">
         <div className="max-w-3xl">
           <p className="eyebrow">{t.hero.eyebrow}</p>
           <h1 className="mt-5 text-[clamp(1.75rem,6vw,2.5rem)] leading-[1.06] text-on-navy sm:text-6xl lg:text-7xl">
