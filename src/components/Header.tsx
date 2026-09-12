@@ -78,7 +78,7 @@ export function Header() {
           className={cn(
             // Use padding instead of height — padding changes don't trigger layout reflow cascade
             "container-hayya flex items-center justify-between transition-[padding] duration-300",
-            scrolled ? "py-3" : "py-4 md:py-6",
+            scrolled ? "py-2 md:py-3" : "py-2.5 md:py-4 lg:py-6",
           )}
         >
           {/* ── Logo ── */}
@@ -90,8 +90,11 @@ export function Header() {
               height={576}
               className={cn(
                 // Only transition filter (GPU) not width/height (layout)
-                "h-20 w-auto transition-[filter] duration-300",
-                scrolled ? "" : "brightness-0 invert",
+                // Mobile: h-12, scrolled desktop: h-16, open desktop: h-20
+                "w-auto transition-[filter,height] duration-300",
+                scrolled
+                  ? "h-12 md:h-14 lg:h-16"
+                  : "h-14 md:h-16 lg:h-20 brightness-0 invert",
               )}
             />
           </Link>
