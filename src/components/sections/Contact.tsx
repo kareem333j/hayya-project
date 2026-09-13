@@ -12,7 +12,7 @@ export function Contact() {
       <div className="container-hayya grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
         <Reveal>
           <p className="eyebrow">{t.contact.label}</p>
-          <h2 className="mt-5 text-3xl leading-[1.14] text-navy sm:text-4xl lg:text-[2.9rem]">
+          <h2 className="mt-5 text-[2.5rem] leading-[1.14] text-navy sm:text-5xl md:text-[3.5rem] lg:text-[4.5rem]">
             {t.contact.title}
           </h2>
           <p className="mt-5 text-base leading-relaxed text-muted-foreground">{t.contact.sub}</p>

@@ -88,7 +88,7 @@ export function PromoVideo() {
       <div className="container-hayya">
         <Reveal className="max-w-3xl mx-auto text-center mb-16">
           <p className="eyebrow">{c.label}</p>
-          <h2 className="mt-5 text-3xl leading-[1.14] text-on-navy sm:text-4xl lg:text-[2.9rem]">
+          <h2 className="mt-5 text-[2.5rem] leading-[1.14] text-on-navy sm:text-5xl lg:text-[4.5rem]">
             {c.title}
           </h2>
           <p className="mt-5 text-base leading-relaxed text-on-navy-muted">{c.sub}</p>

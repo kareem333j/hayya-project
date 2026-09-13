@@ -1,5 +1,5 @@
 import { supabase } from "@/integrations/supabase/client";
-import type { Lang } from "@/content/site";
+import { type Lang, products as staticProducts } from "@/content/site";
 
 export const PRODUCT_BUCKET = "product-images";
 
@@ -73,7 +73,28 @@ export async function fetchPublishedProducts(): Promise<ProductWithImage[]> {
     .order("sort_order", { ascending: true })
     .order("created_at", { ascending: true });
   if (error) throw error;
-  return withImages((data ?? []) as Product[]);
+  
+  const supabaseProducts = await withImages((data ?? []) as Product[]);
+  
+  const newStaticProducts = staticProducts.slice(0, 3).map((p, idx) => ({
+    id: p.id,
+    name_en: p.en.name,
+    name_ar: p.ar.name,
+    description_en: p.en.desc,
+    description_ar: p.ar.desc,
+    image_url: p.image,
+    image_path: "",
+    season: "",
+    is_published: true,
+    is_featured: true,
+    sort_order: -100 + idx,
+    displayImage: p.image,
+  }));
+
+  const dbNames = new Set(supabaseProducts.map(p => p.name_en.toLowerCase()));
+  const filteredStatic = newStaticProducts.filter(p => !dbNames.has(p.name_en.toLowerCase()));
+
+  return [...filteredStatic, ...supabaseProducts];
 }
 
 export async function fetchAllProducts(): Promise<ProductWithImage[]> {
@@ -83,7 +104,28 @@ export async function fetchAllProducts(): Promise<ProductWithImage[]> {
     .order("sort_order", { ascending: true })
     .order("created_at", { ascending: true });
   if (error) throw error;
-  return withImages((data ?? []) as Product[]);
+  
+  const supabaseProducts = await withImages((data ?? []) as Product[]);
+  
+  const newStaticProducts = staticProducts.slice(0, 3).map((p, idx) => ({
+    id: p.id,
+    name_en: p.en.name,
+    name_ar: p.ar.name,
+    description_en: p.en.desc,
+    description_ar: p.ar.desc,
+    image_url: p.image,
+    image_path: "",
+    season: "",
+    is_published: true,
+    is_featured: true,
+    sort_order: -100 + idx,
+    displayImage: p.image,
+  }));
+
+  const dbNames = new Set(supabaseProducts.map(p => p.name_en.toLowerCase()));
+  const filteredStatic = newStaticProducts.filter(p => !dbNames.has(p.name_en.toLowerCase()));
+
+  return [...filteredStatic, ...supabaseProducts];
 }
 
 export type ProductInput = Omit<Product, "id">;

@@ -11,7 +11,7 @@ export function Partnerships() {
       <div className="container-hayya grid gap-16 lg:grid-cols-[0.9fr_1.1fr] lg:gap-24">
         <Reveal>
           <p className="eyebrow">{t.partnerships.label}</p>
-          <h2 className="mt-5 text-3xl leading-[1.14] text-navy sm:text-4xl lg:text-[2.9rem]">
+          <h2 className="mt-5 text-[2.5rem] leading-[1.14] text-navy sm:text-5xl md:text-[3.5rem] lg:text-[4.5rem]">
             {t.partnerships.title}
           </h2>
           <p className="mt-6 text-base leading-relaxed text-muted-foreground">

@@ -1,7 +1,8 @@
-import heroImage from "@/assets/hero-field.jpg";
 import { useLanguage } from "@/lib/language";
-import { BrandLink } from "@/components/BrandButton";
+import { brandButton } from "@/components/BrandButton";
 import { Image } from "@/components/Image";
+import { Link } from "@tanstack/react-router";
+import { cn } from "@/lib/utils";
 
 export function Hero() {
   const { t } = useLanguage();
@@ -9,8 +10,8 @@ export function Hero() {
   return (
     <section id="home" className="relative isolate flex min-h-[92svh] items-end overflow-hidden">
       <Image
-        src={heroImage}
-        alt="Egyptian agricultural field at sunrise"
+        src="/service-trade.jpg"
+        alt="Global trade terminal"
         width={1920}
         height={1280}
         className="absolute inset-0 -z-20 h-full w-full object-cover hero-img"
@@ -33,20 +34,19 @@ export function Hero() {
       <div className="container-hayya pt-28 sm:pt-32 md:pt-36 pb-16 md:pb-24">
         <div className="max-w-3xl">
           <p className="eyebrow">{t.hero.eyebrow}</p>
-          <h1 className="mt-5 text-[clamp(1.75rem,6vw,2.5rem)] leading-[1.06] text-on-navy sm:text-6xl lg:text-7xl">
-            <span className="text-gold-shimmer">{t.hero.title.split('.')[0]}.</span>
-            {t.hero.title.includes('.') && t.hero.title.substring(t.hero.title.indexOf('.') + 1)}
+          <h1 className="mt-5 text-[clamp(1.75rem,6vw,2.5rem)] leading-[1.06] text-on-navy font-display font-black tracking-tighter sm:text-6xl lg:text-7xl">
+            {t.hero.title}
           </h1>
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-on-navy-muted sm:text-lg">
             {t.hero.sub}
           </p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-            <BrandLink href="/#contact" variant="gold" size="lg" className="w-full sm:w-auto">
+            <Link to="/services" className={cn(brandButton({ variant: "gold", size: "lg" }), "w-full sm:w-auto")}>
               {t.hero.primary}
-            </BrandLink>
-            <BrandLink href="/products" variant="ghostLight" size="lg" className="w-full sm:w-auto">
+            </Link>
+            <a href="/#contact" className={cn(brandButton({ variant: "ghostLight", size: "lg" }), "w-full sm:w-auto")}>
               {t.hero.secondary}
-            </BrandLink>
+            </a>
           </div>
           <p className="mt-8 border-t border-on-navy/20 pt-5 text-xs font-semibold tracking-[0.16em] text-on-navy/70 uppercase">
             {t.hero.trust}

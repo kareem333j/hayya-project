@@ -17,7 +17,7 @@ export function ProductGrid({
   const c = catalogCopy[lang];
 
   return (
-    <ul className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+    <ul className="grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-3 lg:gap-8">
       {products.map((product, i) => (
         <Reveal
           as="li"
@@ -54,26 +54,26 @@ export function ProductGrid({
           </div>
 
           {/* Content Container */}
-          <div className="relative flex flex-1 flex-col p-6 sm:p-8">
-            <h3 className="text-2xl font-semibold text-navy transition-colors duration-300 group-hover:text-gold">
+          <div className="relative flex flex-1 flex-col p-4 sm:p-6 lg:p-8">
+            <h3 className="text-lg font-semibold text-navy transition-colors duration-300 group-hover:text-gold sm:text-xl lg:text-2xl">
               {localName(product, lang)}
             </h3>
             
-            <p className="mt-3 flex-1 text-sm leading-relaxed text-navy-muted/80 line-clamp-3">
+            <p className="mt-2 flex-1 text-xs leading-relaxed text-navy-muted/80 line-clamp-2 sm:mt-3 sm:text-sm sm:line-clamp-3">
               {localDesc(product, lang)}
             </p>
             
             {/* Animated CTA */}
-            <div className="mt-6 flex items-center pt-4 border-t border-navy/5">
+            <div className="mt-4 flex items-center pt-3 border-t border-navy/5 sm:mt-6 sm:pt-4">
               <a
                 href={ctaHref}
-                className="group/btn inline-flex items-center gap-3 text-xs font-bold tracking-[0.15em] text-navy uppercase transition-colors hover:text-gold focus-visible:outline-none"
+                className="group/btn inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.15em] text-navy uppercase transition-colors hover:text-gold focus-visible:outline-none sm:gap-3 sm:text-xs"
               >
                 <span>{c.inquire}</span>
                 <span className="relative flex h-8 w-8 items-center justify-center rounded-full bg-navy/5 transition-all duration-300 group-hover/btn:bg-gold/10 group-hover/btn:text-gold">
                   <ArrowRight
                     className={cn(
-                      "h-4 w-4 transition-transform duration-300",
+                      "h-3 w-3 sm:h-4 sm:w-4 transition-transform duration-300",
                       dir === "rtl" ? "rotate-180 group-hover/btn:-translate-x-1" : "group-hover/btn:translate-x-1"
                     )}
                   />

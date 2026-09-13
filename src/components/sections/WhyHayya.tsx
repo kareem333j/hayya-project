@@ -24,7 +24,7 @@ export function WhyHayya() {
       <div className="container-hayya relative z-10">
         <Reveal className="max-w-2xl">
           <p className="eyebrow">{t.why.label}</p>
-          <h2 className="mt-5 text-3xl leading-[1.14] text-navy sm:text-4xl lg:text-[2.9rem]">
+          <h2 className="mt-5 text-[2.5rem] leading-[1.14] text-navy sm:text-5xl md:text-[3.5rem] lg:text-[4.5rem]">
             {t.why.title}
           </h2>
         </Reveal>

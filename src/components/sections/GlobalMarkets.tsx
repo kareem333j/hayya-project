@@ -51,7 +51,7 @@ export function GlobalMarkets() {
       <div className="container-hayya">
         <Reveal className="max-w-2xl">
           <p className="eyebrow">{t.global.label}</p>
-          <h2 className="mt-5 text-3xl leading-[1.12] text-on-navy sm:text-4xl lg:text-5xl">
+          <h2 className="mt-5 text-4xl leading-[1.12] text-on-navy sm:text-5xl lg:text-5xl">
             {t.global.title}
           </h2>
           <p className="mt-6 text-base leading-relaxed text-on-navy-muted">{t.global.body}</p>

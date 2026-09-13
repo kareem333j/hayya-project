@@ -19,14 +19,14 @@ export function Products() {
 
   const all = data ?? [];
   const featured = all.filter((p) => p.is_featured);
-  const highlights = (featured.length > 0 ? featured : all).slice(0, 3);
+  const highlights = (featured.length > 0 ? featured : all).slice(0, 6);
 
   return (
     <section id="products" className="border-y border-border bg-secondary py-20 md:py-28 lg:py-32">
       <div className="container-hayya">
         <Reveal className="max-w-2xl">
           <p className="eyebrow">{t.products.label}</p>
-          <h2 className="mt-5 text-3xl leading-[1.14] text-navy sm:text-4xl lg:text-[2.9rem]">
+          <h2 className="mt-5 text-[2.5rem] leading-[1.14] text-navy sm:text-5xl md:text-[3.5rem] lg:text-[4.5rem]">
             {t.products.title}
           </h2>
           <p className="mt-5 text-base leading-relaxed text-muted-foreground">{t.products.sub}</p>

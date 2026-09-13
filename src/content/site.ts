@@ -42,6 +42,42 @@ export const company = {
 /* ------------------------------------------------------------------ */
 export const products = [
   {
+    id: "potatoes",
+    image: "/products/potato.jpeg",
+    en: {
+      name: "Potatoes",
+      desc: "High-quality Egyptian potatoes, grown in fertile soil and sorted carefully for export markets.",
+    },
+    ar: {
+      name: "بطاطس",
+      desc: "بطاطس مصرية عالية الجودة، تُزرع في تربة خصبة وتُفرز بعناية لأسواق التصدير.",
+    },
+  },
+  {
+    id: "oranges",
+    image: "/products/oranges.jpg",
+    en: {
+      name: "Fresh Oranges",
+      desc: "Premium Egyptian citrus selected for sweetness, juiciness, and perfect condition upon arrival.",
+    },
+    ar: {
+      name: "برتقال طازج",
+      desc: "حمضيات مصرية ممتازة يتم اختيارها بناءً على المذاق الحلو والعصارة الكثيفة لتصلك بأفضل حالة.",
+    },
+  },
+  {
+    id: "aromatic-leaves",
+    image: "/products/aromatic-leaves.jpg",
+    en: {
+      name: "Rosemary & Aromatic Herbs",
+      desc: "Fresh export-quality herbs including rosemary and anise, harvested and packed meticulously to preserve their natural aroma.",
+    },
+    ar: {
+      name: "روزماري وأعشاب عطرية",
+      desc: "أعشاب طازجة للتصدير تشمل الروزماري (إكليل الجبل) والينسون، تُحصد وتُعبأ بعناية للحفاظ على رائحتها الطبيعية.",
+    },
+  },
+  {
     id: "mangoes",
     image: mangoes.url,
     en: {
@@ -154,11 +190,11 @@ export const copy = {
       close: "Close menu",
     },
     hero: {
-      eyebrow: "Egyptian Agricultural Export",
-      title: "Fresh From Egypt. Trusted Around the World.",
-      sub: "HAYYA connects premium Egyptian agricultural products with international markets through reliable sourcing, quality-focused operations, and professional export solutions.",
-      primary: "Request a Quote",
-      secondary: "Explore Our Products",
+      eyebrow: "YOUR BRIDGE TO GLOBAL TRADE",
+      title: "From Egyptian supply to global markets.",
+      sub: "Hayya connects Egyptian producers with trusted buyers and suppliers across borders — from fresh crops to industrial steel products.",
+      primary: "Explore our services ↗",
+      secondary: "Start a conversation",
       trust: "Egyptian Agricultural Products | B2B Export | Reliable Supply",
     },
     trust: [
@@ -319,11 +355,11 @@ export const copy = {
       close: "إغلاق القائمة",
     },
     hero: {
-      eyebrow: "التصدير الزراعي المصري",
-      title: "طازج من مصر، وموثوق حول العالم",
-      sub: "تربط هيّا المنتجات الزراعية المصرية المتميزة بالأسواق الدولية من خلال توريد موثوق، وعمليات تركز على الجودة، وحلول تصدير احترافية.",
-      primary: "اطلب عرض سعر",
-      secondary: "استعرض منتجاتنا",
+      eyebrow: "جسر العبور إلى التجارة العالمية",
+      title: "من التوريد المصري إلى الأسواق العالمية.",
+      sub: "تربط هيّا المنتجين المصريين بالمشترين والموردين الموثوقين عبر الحدود — من المحاصيل الطازجة إلى منتجات الصلب الصناعية.",
+      primary: "استكشف خدماتنا ↗",
+      secondary: "ابدأ محادثة",
       trust: "منتجات زراعية مصرية | تصدير للشركات | إمداد موثوق",
     },
     trust: [

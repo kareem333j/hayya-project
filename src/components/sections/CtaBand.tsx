@@ -28,7 +28,7 @@ export function CtaBand() {
 
             <div className="relative z-10 flex flex-col items-center">
               {/* Title */}
-              <h2 className="text-balance mx-auto max-w-3xl font-display text-3xl leading-[1.15] text-on-navy sm:text-4xl lg:text-5xl">
+              <h2 className="text-balance mx-auto max-w-3xl font-display text-[2.5rem] leading-[1.15] text-on-navy sm:text-5xl lg:text-[4.5rem]">
                 {t.cta.title}
               </h2>
               
