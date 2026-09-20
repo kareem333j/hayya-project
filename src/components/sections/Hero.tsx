@@ -44,9 +44,9 @@ export function Hero() {
             <Link to="/services" className={cn(brandButton({ variant: "gold", size: "lg" }), "w-full sm:w-auto")}>
               {t.hero.primary}
             </Link>
-            <a href="/#contact" className={cn(brandButton({ variant: "ghostLight", size: "lg" }), "w-full sm:w-auto")}>
+            <Link to="/" hash="contact" className={cn(brandButton({ variant: "ghostLight", size: "lg" }), "w-full sm:w-auto")}>
               {t.hero.secondary}
-            </a>
+            </Link>
           </div>
           <p className="mt-8 border-t border-on-navy/20 pt-5 text-xs font-semibold tracking-[0.16em] text-on-navy/70 uppercase">
             {t.hero.trust}

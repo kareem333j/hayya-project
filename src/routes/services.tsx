@@ -4,7 +4,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Reveal } from "@/components/Reveal";
 import { company } from "@/content/site";
-import { ArrowRight, Package, Ship, Building2, Facebook, Instagram, Linkedin, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Package, Ship, Building2, HardHat, Home, Facebook, Instagram, Linkedin, CheckCircle2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { brandButton } from "@/components/BrandButton";
 import { Image } from "@/components/Image";
@@ -36,8 +36,8 @@ export const Route = createFileRoute("/services")({
 const copy = {
   en: {
     eyebrow: "What We Do",
-    title: "Three Pillars of Excellence",
-    sub: "HAYYA delivers end-to-end solutions across agricultural exports, global trade logistics, and premium real estate investment — driven by integrity and global ambition.",
+    title: "Five Pillars of Excellence",
+    sub: "HAYYA delivers end-to-end solutions across agricultural exports, global trade logistics, contracting & supplies, real estate marketing, and premium real estate investment — driven by integrity and global ambition.",
     services: [
       {
         id: "agri",
@@ -93,6 +93,42 @@ const copy = {
         iconBg: "bg-leaf/15 text-leaf border-leaf/30",
         badge: "Real Estate",
       },
+      {
+        id: "contracting",
+        icon: HardHat,
+        label: "Contracting & Supplies",
+        title: "Construction Contracting & Material Supplies",
+        desc: "HAYYA provides professional contracting services and reliable supply of construction materials — from steel and concrete to finishing materials — serving residential, commercial, and government projects across Egypt.",
+        points: [
+          "Supply of structural & finishing construction materials",
+          "Subcontracting for residential & commercial projects",
+          "Procurement management & vendor coordination",
+          "Timely delivery with quality-guaranteed materials",
+        ],
+        cta: "Inquire About Contracting",
+        href: "/#contact",
+        accent: "from-orange-500/10 to-amber-50/20",
+        iconBg: "bg-orange-500/10 text-orange-600 border-orange-500/20",
+        badge: "Contracting",
+      },
+      {
+        id: "realestate-marketing",
+        icon: Home,
+        label: "Real Estate Marketing",
+        title: "Strategic Real Estate Marketing in Egypt",
+        desc: "HAYYA offers dedicated real estate marketing services — connecting developers, sellers, and buyers through targeted campaigns, property showcasing, and market-driven strategies across Egypt's most vibrant real estate markets.",
+        points: [
+          "Property listing & digital marketing campaigns",
+          "Developer partnerships & project launches",
+          "Buyer profiling & targeted sales outreach",
+          "Market research for emerging Egyptian cities",
+        ],
+        cta: "Inquire About Real Estate Marketing",
+        href: "/#contact",
+        accent: "from-purple-500/10 to-violet-50/20",
+        iconBg: "bg-purple-500/10 text-purple-600 border-purple-500/20",
+        badge: "Real Estate Marketing",
+      },
     ],
     social: {
       title: "Connect With HAYYA",
@@ -106,8 +142,8 @@ const copy = {
   },
   ar: {
     eyebrow: "ماذا نفعل",
-    title: "ثلاثة محاور للتميز",
-    sub: "تقدم هيّا حلولاً متكاملة في التصدير الزراعي والتجارة الدولية والاستثمار العقاري المتميز — مدفوعةً بالنزاهة والطموح العالمي.",
+    title: "خمسة محاور للتميز",
+    sub: "تقدم هيّا حلولاً متكاملة في التصدير الزراعي والتجارة الدولية والمقاولات والتوريدات والتسويق العقاري والاستثمار العقاري — مدفوعةً بالنزاهة والطموح العالمي.",
     services: [
       {
         id: "agri",
@@ -163,6 +199,42 @@ const copy = {
         iconBg: "bg-leaf/15 text-leaf border-leaf/30",
         badge: "عقارات",
       },
+      {
+        id: "contracting",
+        icon: HardHat,
+        label: "المقاولات والتوريدات",
+        title: "مقاولات البناء وتوريد مواد التشييد",
+        desc: "تقدم هيّا خدمات مقاولات احترافية وتوريداً موثوقاً لمواد البناء — من الحديد والخرسانة إلى مواد التشطيب — لخدمة المشاريع السكنية والتجارية والحكومية في مصر.",
+        points: [
+          "توريد مواد البناء الإنشائية والتشطيبية",
+          "المقاولات الفرعية للمشاريع السكنية والتجارية",
+          "إدارة المشتريات وتنسيق الموردين",
+          "تسليم في الوقت المحدد بمواد مضمونة الجودة",
+        ],
+        cta: "استفسر عن المقاولات",
+        href: "/#contact",
+        accent: "from-orange-500/10 to-amber-50/20",
+        iconBg: "bg-orange-500/10 text-orange-600 border-orange-500/20",
+        badge: "مقاولات",
+      },
+      {
+        id: "realestate-marketing",
+        icon: Home,
+        label: "التسويق العقاري",
+        title: "التسويق العقاري الاستراتيجي في مصر",
+        desc: "تقدم هيّا خدمات تسويق عقاري متخصصة — تربط المطورين والبائعين والمشترين من خلال حملات مستهدفة وعروض عقارية واستراتيجيات مدفوعة بالسوق في أكثر الأسواق العقارية المصرية حيوية.",
+        points: [
+          "إدراج العقارات وحملات التسويق الرقمي",
+          "شراكات المطورين وإطلاق المشاريع",
+          "تحديد ملفات المشترين والتواصل المبيعاتي المستهدف",
+          "أبحاث السوق للمدن المصرية الناشئة",
+        ],
+        cta: "استفسر عن التسويق العقاري",
+        href: "/#contact",
+        accent: "from-purple-500/10 to-violet-50/20",
+        iconBg: "bg-purple-500/10 text-purple-600 border-purple-500/20",
+        badge: "تسويق عقاري",
+      },
     ],
     social: {
       title: "تواصل مع هيّا",
@@ -202,6 +274,8 @@ const serviceImages: Record<string, string> = {
   agri: "/service-agri.jpg",
   trade: "/service-trade.jpg",
   realestate: "/service-realestate.jpg",
+  contracting: "/service-contracting.jpg",
+  "realestate-marketing": "/service-realestate-marketing.jpg",
 };
 
 /* ── page ─────────────────────────────────────────────────────── */
@@ -387,12 +461,13 @@ function ServicesPage() {
                 {c.cta.body}
               </p>
               <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-                <a
-                  href="/#contact"
+                <Link
+                  to="/"
+                  hash="contact"
                   className={cn(brandButton({ variant: "gold", size: "lg" }))}
                 >
                   {c.cta.btn}
-                </a>
+                </Link>
                 <Link
                   to="/"
                   className={cn(brandButton({ variant: "ghostLight", size: "lg" }))}

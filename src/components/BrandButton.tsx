@@ -1,4 +1,5 @@
 import { cva, type VariantProps } from "class-variance-authority";
+import { Link } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
 
 export const brandButton = cva(
@@ -20,8 +21,23 @@ export const brandButton = cva(
   },
 );
 
-type Props = React.ComponentProps<"a"> & VariantProps<typeof brandButton>;
+type Props = React.ComponentProps<"a"> & VariantProps<typeof brandButton> & { href?: string };
 
-export function BrandLink({ className, variant, size, ...props }: Props) {
-  return <a className={cn(brandButton({ variant, size }), className)} {...props} />;
+export function BrandLink({ className, variant, size, href, ...props }: Props) {
+  const isInternal = href && href.startsWith("/");
+  const btnClass = cn(brandButton({ variant, size }), className);
+
+  if (isInternal) {
+    const [path, hash] = href.split("#");
+    return (
+      <Link 
+        to={path || "/"} 
+        {...(hash ? { hash } : {})}
+        className={btnClass} 
+        {...props as any} 
+      />
+    );
+  }
+
+  return <a href={href} className={btnClass} {...props} />;
 }

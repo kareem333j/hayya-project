@@ -29,7 +29,7 @@ export const company = {
   facebook: "https://www.facebook.com/share/1GL3ZtikM8/?mibextid=wwXIfr",
   instagram: "https://www.instagram.com/hayya.egypt",
   linkedin: "https://www.linkedin.com/company/hayya-engineering-and-development",
-  location: { en: "El Shorouk City, Egypt", ar: "مدينة الشروق، مصر" },
+  location: { en: "C31 University Mall - El Shorouk City - Cairo", ar: "C31 الجامعه مول - مدينة الشروق - القاهره" },
   /**
    * Inquiry form destination. When email is enabled, the form
    * sends a notification to the company email above.
@@ -183,6 +183,7 @@ export const copy = {
       products: "Products",
       services: "Services",
       why: "Why HAYYA",
+      projects: "Our Projects",
       partnerships: "Partnerships",
       contact: "Contact",
       quote: "Request a Quote",
@@ -191,7 +192,7 @@ export const copy = {
     },
     hero: {
       eyebrow: "YOUR BRIDGE TO GLOBAL TRADE",
-      title: "From Egyptian supply to global markets.",
+      title: "From the land of Egypt to global markets.",
       sub: "Hayya connects Egyptian producers with trusted buyers and suppliers across borders — from fresh crops to industrial steel products.",
       primary: "Explore our services ↗",
       secondary: "Start a conversation",
@@ -223,6 +224,45 @@ export const copy = {
       title: "Egyptian Produce, Prepared for Global Markets",
       sub: "Product categories below are indicative. Availability depends on season and buyer specification — contact us to confirm current lines.",
       cta: "Request Information",
+    },
+    services: {
+      label: "Our Services",
+      title: "Business Areas We Excel In",
+      sub: "HAYYA provides comprehensive services across multiple sectors, connecting quality with global standards.",
+      items: [
+        {
+          id: "agriculture",
+          title: "Agricultural Products Export",
+          desc: "Exporting premium Egyptian agricultural products to global markets with a strict focus on quality, freshness, and reliability.",
+          cta: "View Products",
+          link: "/products",
+          image: "/services/agricultural_export.jpg"
+        },
+        {
+          id: "real-estate",
+          title: "Real Estate Marketing & Investment",
+          desc: "Expert real estate services, offering premium property marketing, investment consulting, and development solutions in Egypt.",
+          cta: "Our Projects",
+          link: "/#projects",
+          image: "/services/real_estate.jpg"
+        },
+        {
+          id: "import-export",
+          title: "Import & Commercial Agencies",
+          desc: "Facilitating international trade through reliable import operations and acting as trusted commercial agents for global brands.",
+          cta: "Our Projects",
+          link: "/#projects",
+          image: "/services/import_export.jpg"
+        },
+        {
+          id: "industrial",
+          title: "General Supplies & Industrial Products",
+          desc: "Sourcing and supplying high-quality industrial materials and general supplies to meet diverse commercial and operational needs.",
+          cta: "Our Projects",
+          link: "/#projects",
+          image: "/services/industrial_supplies.jpg"
+        }
+      ]
     },
     promo: {
       label: "Our Operations",
@@ -348,6 +388,7 @@ export const copy = {
       products: "المنتجات",
       services: "خدماتنا",
       why: "لماذا هيّا",
+      projects: "مشاريعنا",
       partnerships: "الشراكات",
       contact: "اتصل بنا",
       quote: "اطلب عرض سعر",
@@ -356,7 +397,7 @@ export const copy = {
     },
     hero: {
       eyebrow: "جسر العبور إلى التجارة العالمية",
-      title: "من التوريد المصري إلى الأسواق العالمية.",
+      title: "من ارض مصر إلى الأسواق العالمية.",
       sub: "تربط هيّا المنتجين المصريين بالمشترين والموردين الموثوقين عبر الحدود — من المحاصيل الطازجة إلى منتجات الصلب الصناعية.",
       primary: "استكشف خدماتنا ↗",
       secondary: "ابدأ محادثة",
@@ -385,6 +426,45 @@ export const copy = {
       title: "محاصيل مصرية مُجهّزة للأسواق العالمية",
       sub: "فئات المنتجات التالية إرشادية، ويعتمد التوافر على الموسم ومواصفات المشتري — تواصل معنا لتأكيد الخطوط المتاحة حاليًا.",
       cta: "اطلب معلومات",
+    },
+    services: {
+      label: "خدماتنا",
+      title: "مجالات العمل التي نتميز بها",
+      sub: "تقدم هيّا خدمات متكاملة عبر قطاعات متعددة، لتربط بين الجودة والمعايير العالمية.",
+      items: [
+        {
+          id: "agriculture",
+          title: "تصدير المنتجات الزراعية",
+          desc: "تصدير منتجات زراعية مصرية ممتازة للأسواق العالمية مع تركيز صارم على الجودة والطزاجة والموثوقية.",
+          cta: "عرض المنتجات",
+          link: "/products",
+          image: "/services/agricultural_export.jpg"
+        },
+        {
+          id: "real-estate",
+          title: "التسويق العقاري والاستثمار",
+          desc: "خدمات عقارية متخصصة، نقدم حلول تسويق للعقارات المتميزة، استشارات استثمارية، وحلول تطوير في مصر.",
+          cta: "مشاريعنا",
+          link: "/#projects",
+          image: "/services/real_estate.jpg"
+        },
+        {
+          id: "import-export",
+          title: "خدمات الاستيراد والتوكيلات التجارية",
+          desc: "تسهيل التجارة الدولية من خلال عمليات استيراد موثوقة والعمل كوكلاء تجاريين موثوقين للعلامات التجارية العالمية.",
+          cta: "مشاريعنا",
+          link: "/#projects",
+          image: "/services/import_export.jpg"
+        },
+        {
+          id: "industrial",
+          title: "التوريدات العامة والمنتجات الصناعية",
+          desc: "توريد وإمداد المواد الصناعية عالية الجودة والتوريدات العامة لتلبية الاحتياجات التجارية والتشغيلية المتنوعة.",
+          cta: "مشاريعنا",
+          link: "/#projects",
+          image: "/services/industrial_supplies.jpg"
+        }
+      ]
     },
     promo: {
       label: "عملياتنا",

@@ -4,6 +4,7 @@ import { useLanguage } from "@/lib/language";
 import { catalogCopy } from "@/content/site";
 import { localDesc, localName, type ProductWithImage } from "@/lib/catalog";
 import { Image } from "@/components/Image";
+import { Link } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
 
 export function ProductGrid({
@@ -65,8 +66,9 @@ export function ProductGrid({
             
             {/* Animated CTA */}
             <div className="mt-4 flex items-center pt-3 border-t border-navy/5 sm:mt-6 sm:pt-4">
-              <a
-                href={ctaHref}
+              <Link
+                to={ctaHref.split('#')[0] || "/"}
+                {...(ctaHref.split('#')[1] ? { hash: ctaHref.split('#')[1] } : {})}
                 className="group/btn inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.15em] text-navy uppercase transition-colors hover:text-gold focus-visible:outline-none sm:gap-3 sm:text-xs"
               >
                 <span>{c.inquire}</span>
@@ -78,7 +80,7 @@ export function ProductGrid({
                     )}
                   />
                 </span>
-              </a>
+              </Link>
             </div>
           </div>
         </Reveal>

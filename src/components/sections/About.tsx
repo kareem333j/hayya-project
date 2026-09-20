@@ -1,20 +1,22 @@
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
-import { ArrowRight, Check, X, ZoomIn } from "lucide-react";
+import { ArrowRight, Check, X, ZoomIn, FileText } from "lucide-react";
 import aboutImage from "@/assets/about-packing.jpg";
 import { useLanguage } from "@/lib/language";
 import { Reveal } from "@/components/Reveal";
 import { BrandLink } from "@/components/BrandButton";
 import { Image } from "@/components/Image";
+import { ProfileModal } from "@/components/ProfileModal";
 
 import isoCertificate from "@/assets/iso-certificate.jpg";
 
 export function About() {
   const { t, dir } = useLanguage();
   const [isViewerOpen, setIsViewerOpen] = useState(false);
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
 
   useEffect(() => {
-    if (isViewerOpen) {
+    if (isViewerOpen || isProfileOpen) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
@@ -22,7 +24,7 @@ export function About() {
     return () => {
       document.body.style.overflow = "";
     };
-  }, [isViewerOpen]);
+  }, [isViewerOpen, isProfileOpen]);
 
   return (
     <>
@@ -72,10 +74,21 @@ export function About() {
               </div>
             </div>
 
-            <BrandLink href="/#contact" variant="outline" className="mt-9">
-              {t.about.cta}
-              <ArrowRight className={dir === "rtl" ? "h-4 w-4 rotate-180" : "h-4 w-4"} />
-            </BrandLink>
+            <div className="mt-9 flex flex-wrap items-center gap-4">
+              <BrandLink href="/#contact" variant="outline">
+                {t.about.cta}
+                <ArrowRight className={dir === "rtl" ? "h-4 w-4 rotate-180" : "h-4 w-4"} />
+              </BrandLink>
+              <button
+                type="button"
+                onClick={() => setIsProfileOpen(true)}
+                className="inline-flex items-center gap-2 rounded-xl border border-gold/40 bg-gold/10 px-5 py-2.5 text-sm font-semibold text-gold transition-all duration-300 hover:bg-gold hover:text-white hover:shadow-[0_4px_20px_rgba(212,175,55,0.35)] focus:outline-none focus:ring-2 focus:ring-gold"
+                id="view-profile-btn"
+              >
+                <FileText className="h-4 w-4" />
+                {dir === "rtl" ? "عرض البروفايل" : "View Profile"}
+              </button>
+            </div>
           </Reveal>
 
           <Reveal delay={120} className="relative mt-12 lg:mt-0">
@@ -145,6 +158,10 @@ export function About() {
         </div>,
         document.body
       )}
+
+      {/* Company Profile Modal */}
+      <ProfileModal isOpen={isProfileOpen} onClose={() => setIsProfileOpen(false)} />
     </>
   );
 }
+

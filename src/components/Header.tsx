@@ -12,6 +12,7 @@ const links = [
   { type: "route", to: "/products", key: "products" },
   { type: "route", to: "/services", key: "services" },
   { type: "hash", href: "/#why", key: "why" },
+  { type: "hash", href: "/#projects", key: "projects" },
   { type: "hash", href: "/#partnerships", key: "partnerships" },
   { type: "hash", href: "/#contact", key: "contact" },
 ] as const;
@@ -118,9 +119,10 @@ export function Header() {
 
             {links.map((l) => (
               l.type === "hash" ? (
-                <a
+                <Link
                   key={l.key}
-                  href={l.href}
+                  to={l.href.split('#')[0] || "/"}
+                  {...(l.href.split('#')[1] ? { hash: l.href.split('#')[1] } : {})}
                   ref={(el) => { linkRefs.current[l.key] = el; }}
                   onMouseEnter={() => showIndicator(l.key)}
                   className={cn(
@@ -131,7 +133,7 @@ export function Header() {
                   )}
                 >
                   {t.nav[l.key]}
-                </a>
+                </Link>
               ) : (
                 <Link
                   key={l.key}
@@ -157,13 +159,14 @@ export function Header() {
               tone={scrolled ? "dark" : "light"}
               className="self-stretch"
             />
-            <a
-              href="/#contact"
+            <Link
+              to="/"
+              hash="contact"
               className="group relative inline-flex h-10 items-center gap-2 overflow-hidden rounded-full bg-gold px-6 text-[0.8rem] font-bold tracking-wide text-navy-deep shadow-[0_2px_12px_oklch(0.755_0.13_76/0.4)] transition-all duration-300 hover:shadow-[0_4px_20px_oklch(0.755_0.13_76/0.6)] hover:scale-105 active:scale-95"
             >
               <span className="relative z-10">{t.nav.quote}</span>
               <span className="absolute inset-0 -translate-x-full skew-x-12 bg-white/30 transition-transform duration-500 group-hover:translate-x-full" />
-            </a>
+            </Link>
           </div>
 
           {/* ── Mobile toggle ── */}
@@ -240,15 +243,16 @@ export function Header() {
           <nav className="flex flex-1 flex-col gap-0.5 overflow-y-auto px-3 py-4" aria-label="Mobile">
             {links.map((l) => (
               l.type === "hash" ? (
-                <a
+                <Link
                   key={l.key}
-                  href={l.href}
+                  to={l.href.split('#')[0] || "/"}
+                  {...(l.href.split('#')[1] ? { hash: l.href.split('#')[1] } : {})}
                   onClick={() => setOpen(false)}
                   className="group flex items-center justify-between rounded-xl px-4 py-3.5 text-[0.9375rem] font-medium text-on-navy/75 transition-all duration-200 hover:bg-on-navy/8 hover:text-on-navy"
                 >
                   <span>{t.nav[l.key]}</span>
                   <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-gold/0 transition-colors duration-200 group-hover:bg-gold" />
-                </a>
+                </Link>
               ) : (
                 <Link
                   key={l.key}
@@ -265,14 +269,15 @@ export function Header() {
 
           {/* Footer CTA */}
           <div className="border-t border-on-navy/10 px-6 py-6 space-y-4">
-            <a
-              href="/#contact"
+            <Link
+              to="/"
+              hash="contact"
               onClick={() => setOpen(false)}
               className="group relative flex w-full items-center justify-center gap-2 overflow-hidden rounded-full h-12 text-sm font-bold tracking-wide bg-gold text-navy-deep shadow-[0_2px_16px_oklch(0.755_0.13_76/0.4)] transition-all duration-300 hover:shadow-[0_4px_24px_oklch(0.755_0.13_76/0.55)] hover:scale-[1.02] active:scale-[0.98]"
             >
               <span className="relative z-10">{t.nav.quote}</span>
               <span className="absolute inset-0 -translate-x-full skew-x-12 bg-white/25 transition-transform duration-500 group-hover:translate-x-full" />
-            </a>
+            </Link>
             <div className="flex justify-center">
               <LanguageSwitcher tone="light" />
             </div>

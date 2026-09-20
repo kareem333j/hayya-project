@@ -4,10 +4,11 @@ import { Header } from "@/components/Header";
 import { Hero } from "@/components/sections/Hero";
 import { TrustBar } from "@/components/sections/TrustBar";
 import { About } from "@/components/sections/About";
-import { Products } from "@/components/sections/Products";
+import { Services } from "@/components/sections/Services";
 import { Process } from "@/components/sections/Process";
 import { WhyHayya } from "@/components/sections/WhyHayya";
 import { Partnerships } from "@/components/sections/Partnerships";
+import { OurProjects } from "@/components/sections/OurProjects";
 import { GlobalMarkets } from "@/components/sections/GlobalMarkets";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { Contact } from "@/components/sections/Contact";
@@ -59,10 +60,11 @@ function HomePage() {
         <Hero />
         <TrustBar />
         <About />
-        <Products />
+        <Services />
         <PromoVideo />
         <Process />
         <WhyHayya />
+        <OurProjects />
         <Partnerships />
         <GlobalMarkets />
         <CtaBand />

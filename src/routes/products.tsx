@@ -63,9 +63,9 @@ function CatalogPage() {
           </div>
 
           <div className="mt-14 flex flex-wrap gap-3">
-            <a href="/#contact" className={cn(brandButton({ variant: "gold", size: "lg" }))}>
+            <Link to="/" hash="contact" className={cn(brandButton({ variant: "gold", size: "lg" }))}>
               {c.inquire}
-            </a>
+            </Link>
             <Link to="/" className={cn(brandButton({ variant: "outline", size: "lg" }))}>
               {c.backHome}
             </Link>

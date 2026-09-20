@@ -89,7 +89,8 @@ export function Footer() {
             {navKeys.map((key) => (
               <li key={key}>
                 <Link
-                  to={navHrefs[key] as any}
+                  to={(navHrefs[key].split('#')[0] || "/") as any}
+                  {...(navHrefs[key].split('#')[1] ? { hash: navHrefs[key].split('#')[1] } : {})}
                   className={cn(
                     "group inline-flex items-center text-sm text-on-navy-muted transition-colors hover:text-white",
                     dir === "rtl" ? "hover:-translate-x-1" : "hover:translate-x-1",
@@ -184,9 +185,9 @@ export function Footer() {
             <LanguageSwitcher tone="light" />
           </div>
           <div className="h-4 w-px bg-white/10" />
-          <a href="/admin" className="text-xs font-medium tracking-wide text-on-navy/40 transition-colors hover:text-gold">
+          <Link to="/admin" className="text-xs font-medium tracking-wide text-on-navy/40 transition-colors hover:text-gold">
             {catalogCopy[lang].manage}
-          </a>
+          </Link>
         </div>
       </div>
     </footer>
