@@ -4,14 +4,14 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Reveal } from "@/components/Reveal";
 import { company } from "@/content/site";
-import { ArrowRight, Package, Ship, Building2, HardHat, Home, Facebook, Instagram, Linkedin, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Package, Ship, Building2, HardHat, Home, Boxes, Facebook, Instagram, Linkedin, CheckCircle2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { brandButton } from "@/components/BrandButton";
 import { Image } from "@/components/Image";
 
-const title = "Our Services | HAYYA — Agricultural Export, Trade & Real Estate";
+const title = "Our Services | HAYYA — Agricultural Export, Trade, Industrial Supplies & Real Estate";
 const description =
-  "HAYYA offers premium Egyptian agricultural exports, import/export trade solutions, and professional real estate investment services.";
+  "HAYYA offers premium Egyptian agricultural exports, import/export trade solutions, general supplies & industrial products, and professional real estate investment services.";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -37,7 +37,7 @@ const copy = {
   en: {
     eyebrow: "What We Do",
     title: "Five Pillars of Excellence",
-    sub: "HAYYA delivers end-to-end solutions across agricultural exports, global trade logistics, contracting & supplies, real estate marketing, and premium real estate investment — driven by integrity and global ambition.",
+    sub: "HAYYA delivers end-to-end solutions across agricultural exports, global trade logistics, contracting & supplies, general supplies & industrial products, and premium real estate investment — driven by integrity and global ambition.",
     services: [
       {
         id: "agri",
@@ -76,24 +76,6 @@ const copy = {
         badge: "International Trade",
       },
       {
-        id: "realestate",
-        icon: Building2,
-        label: "Real Estate Investment",
-        title: "Smart Real Estate Marketing & Investment",
-        desc: "HAYYA extends its trusted name into Egyptian real estate — offering strategic property marketing, investment consulting, and deal facilitation for residential and commercial projects across Egypt's fastest-growing cities.",
-        points: [
-          "Strategic property marketing & promotion",
-          "Investment consultation for residential & commercial",
-          "Market analysis for emerging Egyptian cities",
-          "End-to-end deal facilitation for buyers & sellers",
-        ],
-        cta: "Inquire About Real Estate",
-        href: "/#contact",
-        accent: "from-leaf/15 to-emerald-50/20",
-        iconBg: "bg-leaf/15 text-leaf border-leaf/30",
-        badge: "Real Estate",
-      },
-      {
         id: "contracting",
         icon: HardHat,
         label: "Contracting & Supplies",
@@ -112,22 +94,40 @@ const copy = {
         badge: "Contracting",
       },
       {
-        id: "realestate-marketing",
-        icon: Home,
-        label: "Real Estate Marketing",
-        title: "Strategic Real Estate Marketing in Egypt",
-        desc: "HAYYA offers dedicated real estate marketing services — connecting developers, sellers, and buyers through targeted campaigns, property showcasing, and market-driven strategies across Egypt's most vibrant real estate markets.",
+        id: "industrial",
+        icon: Boxes,
+        label: "General Supplies & Industrial Products",
+        title: "High-Quality Industrial Materials & General Supplies",
+        desc: "HAYYA sources and supplies a wide range of high-quality industrial materials and general supplies — meeting diverse commercial and operational needs for businesses across multiple sectors.",
         points: [
-          "Property listing & digital marketing campaigns",
-          "Developer partnerships & project launches",
-          "Buyer profiling & targeted sales outreach",
-          "Market research for emerging Egyptian cities",
+          "Industrial materials sourcing & procurement",
+          "General supplies for commercial & operational needs",
+          "Quality-vetted products across multiple categories",
+          "Flexible supply agreements for business buyers",
         ],
-        cta: "Inquire About Real Estate Marketing",
+        cta: "Inquire About Supplies",
         href: "/#contact",
-        accent: "from-purple-500/10 to-violet-50/20",
-        iconBg: "bg-purple-500/10 text-purple-600 border-purple-500/20",
-        badge: "Real Estate Marketing",
+        accent: "from-teal-500/10 to-cyan-50/20",
+        iconBg: "bg-teal-500/10 text-teal-600 border-teal-500/20",
+        badge: "Industrial Supplies",
+      },
+      {
+        id: "realestate",
+        icon: Building2,
+        label: "Real Estate Investment",
+        title: "Smart Real Estate Marketing & Investment",
+        desc: "HAYYA extends its trusted name into Egyptian real estate — offering strategic property marketing, investment consulting, and deal facilitation for residential and commercial projects across Egypt's fastest-growing cities.",
+        points: [
+          "Strategic property marketing & promotion",
+          "Investment consultation for residential & commercial",
+          "Market analysis for emerging Egyptian cities",
+          "End-to-end deal facilitation for buyers & sellers",
+        ],
+        cta: "Inquire About Real Estate",
+        href: "/#contact",
+        accent: "from-leaf/15 to-emerald-50/20",
+        iconBg: "bg-leaf/15 text-leaf border-leaf/30",
+        badge: "Real Estate",
       },
     ],
     social: {
@@ -143,7 +143,7 @@ const copy = {
   ar: {
     eyebrow: "ماذا نفعل",
     title: "خمسة محاور للتميز",
-    sub: "تقدم هيّا حلولاً متكاملة في التصدير الزراعي والتجارة الدولية والمقاولات والتوريدات والتسويق العقاري والاستثمار العقاري — مدفوعةً بالنزاهة والطموح العالمي.",
+    sub: "تقدم هيّا حلولاً متكاملة في التصدير الزراعي والتجارة الدولية والمقاولات والتوريدات والتوريدات العامة والمنتجات الصناعية والاستثمار العقاري — مدفوعةً بالنزاهة والطموح العالمي.",
     services: [
       {
         id: "agri",
@@ -182,24 +182,6 @@ const copy = {
         badge: "تجارة دولية",
       },
       {
-        id: "realestate",
-        icon: Building2,
-        label: "الاستثمار العقاري",
-        title: "التسويق العقاري الذكي والاستثمار",
-        desc: "تمتد هيّا بسمعتها الموثوقة إلى قطاع العقارات المصري — مقدمةً تسويقاً استراتيجياً للعقارات واستشارات استثمارية وتسهيل الصفقات للمشاريع السكنية والتجارية في أسرع مدن مصر نمواً.",
-        points: [
-          "تسويق وترويج عقاري استراتيجي",
-          "استشارات استثمارية للسكني والتجاري",
-          "تحليل السوق للمدن المصرية الناشئة",
-          "تسهيل صفقات متكامل للمشترين والبائعين",
-        ],
-        cta: "استفسر عن العقارات",
-        href: "/#contact",
-        accent: "from-leaf/15 to-emerald-50/20",
-        iconBg: "bg-leaf/15 text-leaf border-leaf/30",
-        badge: "عقارات",
-      },
-      {
         id: "contracting",
         icon: HardHat,
         label: "المقاولات والتوريدات",
@@ -218,22 +200,40 @@ const copy = {
         badge: "مقاولات",
       },
       {
-        id: "realestate-marketing",
-        icon: Home,
-        label: "التسويق العقاري",
-        title: "التسويق العقاري الاستراتيجي في مصر",
-        desc: "تقدم هيّا خدمات تسويق عقاري متخصصة — تربط المطورين والبائعين والمشترين من خلال حملات مستهدفة وعروض عقارية واستراتيجيات مدفوعة بالسوق في أكثر الأسواق العقارية المصرية حيوية.",
+        id: "industrial",
+        icon: Boxes,
+        label: "التوريدات العامة والمنتجات الصناعية",
+        title: "مواد صناعية وتوريدات عامة عالية الجودة",
+        desc: "تعمل هيّا على توريد وإمداد مجموعة واسعة من المواد الصناعية عالية الجودة والتوريدات العامة — لتلبية الاحتياجات التجارية والتشغيلية المتنوعة للشركات في قطاعات متعددة.",
         points: [
-          "إدراج العقارات وحملات التسويق الرقمي",
-          "شراكات المطورين وإطلاق المشاريع",
-          "تحديد ملفات المشترين والتواصل المبيعاتي المستهدف",
-          "أبحاث السوق للمدن المصرية الناشئة",
+          "توريد ومشتريات المواد الصناعية",
+          "توريدات عامة للاحتياجات التجارية والتشغيلية",
+          "منتجات مدروسة الجودة عبر فئات متعددة",
+          "اتفاقيات إمداد مرنة للمشترين التجاريين",
         ],
-        cta: "استفسر عن التسويق العقاري",
+        cta: "استفسر عن التوريدات",
         href: "/#contact",
-        accent: "from-purple-500/10 to-violet-50/20",
-        iconBg: "bg-purple-500/10 text-purple-600 border-purple-500/20",
-        badge: "تسويق عقاري",
+        accent: "from-teal-500/10 to-cyan-50/20",
+        iconBg: "bg-teal-500/10 text-teal-600 border-teal-500/20",
+        badge: "توريدات صناعية",
+      },
+      {
+        id: "realestate",
+        icon: Building2,
+        label: "الاستثمار العقاري",
+        title: "التسويق العقاري الذكي والاستثمار",
+        desc: "تمتد هيّا بسمعتها الموثوقة إلى قطاع العقارات المصري — مقدمةً تسويقاً استراتيجياً للعقارات واستشارات استثمارية وتسهيل الصفقات للمشاريع السكنية والتجارية في أسرع مدن مصر نمواً.",
+        points: [
+          "تسويق وترويج عقاري استراتيجي",
+          "استشارات استثمارية للسكني والتجاري",
+          "تحليل السوق للمدن المصرية الناشئة",
+          "تسهيل صفقات متكامل للمشترين والبائعين",
+        ],
+        cta: "استفسر عن العقارات",
+        href: "/#contact",
+        accent: "from-leaf/15 to-emerald-50/20",
+        iconBg: "bg-leaf/15 text-leaf border-leaf/30",
+        badge: "عقارات",
       },
     ],
     social: {
@@ -275,6 +275,7 @@ const serviceImages: Record<string, string> = {
   trade: "/service-trade.jpg",
   realestate: "/service-realestate.jpg",
   contracting: "/service-contracting.jpg",
+  industrial: "/services/industrial_supplies.jpg",
   "realestate-marketing": "/service-realestate-marketing.jpg",
 };
 

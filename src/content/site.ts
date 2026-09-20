@@ -24,6 +24,8 @@ export const company = {
   emailIsValid: true,
   phone: "+20 10 60010040",
   phoneHref: "+201060010040",
+  phone2: "+20 10 21820906",
+  phone2Href: "+201021820906",
   landline: "0220301452",
   landlineHref: "0220301452",
   facebook: "https://www.facebook.com/share/1GL3ZtikM8/?mibextid=wwXIfr",
@@ -239,14 +241,6 @@ export const copy = {
           image: "/services/agricultural_export.jpg"
         },
         {
-          id: "real-estate",
-          title: "Real Estate Marketing & Investment",
-          desc: "Expert real estate services, offering premium property marketing, investment consulting, and development solutions in Egypt.",
-          cta: "Our Projects",
-          link: "/#projects",
-          image: "/services/real_estate.jpg"
-        },
-        {
           id: "import-export",
           title: "Import & Commercial Agencies",
           desc: "Facilitating international trade through reliable import operations and acting as trusted commercial agents for global brands.",
@@ -261,6 +255,14 @@ export const copy = {
           cta: "Our Projects",
           link: "/#projects",
           image: "/services/industrial_supplies.jpg"
+        },
+        {
+          id: "real-estate",
+          title: "Real Estate Marketing & Investment",
+          desc: "Expert real estate services, offering premium property marketing, investment consulting, and development solutions in Egypt.",
+          cta: "Our Projects",
+          link: "/#projects",
+          image: "/services/real_estate.jpg"
         }
       ]
     },
@@ -441,14 +443,6 @@ export const copy = {
           image: "/services/agricultural_export.jpg"
         },
         {
-          id: "real-estate",
-          title: "التسويق العقاري والاستثمار",
-          desc: "خدمات عقارية متخصصة، نقدم حلول تسويق للعقارات المتميزة، استشارات استثمارية، وحلول تطوير في مصر.",
-          cta: "مشاريعنا",
-          link: "/#projects",
-          image: "/services/real_estate.jpg"
-        },
-        {
           id: "import-export",
           title: "خدمات الاستيراد والتوكيلات التجارية",
           desc: "تسهيل التجارة الدولية من خلال عمليات استيراد موثوقة والعمل كوكلاء تجاريين موثوقين للعلامات التجارية العالمية.",
@@ -463,6 +457,14 @@ export const copy = {
           cta: "مشاريعنا",
           link: "/#projects",
           image: "/services/industrial_supplies.jpg"
+        },
+        {
+          id: "real-estate",
+          title: "التسويق العقاري والاستثمار",
+          desc: "خدمات عقارية متخصصة، نقدم حلول تسويق للعقارات المتميزة، استشارات استثمارية، وحلول تطوير في مصر.",
+          cta: "مشاريعنا",
+          link: "/#projects",
+          image: "/services/real_estate.jpg"
         }
       ]
     },
