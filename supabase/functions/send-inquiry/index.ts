@@ -1,4 +1,7 @@
-import { serve } from "https://deno.land/std@0.224.0/http/server.ts";
+declare var Deno: {
+  env: { get(key: string): string | undefined };
+  serve(handler: (req: Request) => Promise<Response> | Response): void;
+};
 
 const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
 const TO_EMAIL = "rezk@hayya-eg.com";
@@ -10,7 +13,7 @@ const corsHeaders = {
   "Access-Control-Allow-Methods": "POST, OPTIONS",
 };
 
-serve(async (req) => {
+Deno.serve(async (req: Request) => {
   // Handle preflight
   if (req.method === "OPTIONS") {
     return new Response("ok", { headers: corsHeaders });
