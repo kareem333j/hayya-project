@@ -100,7 +100,7 @@ export const sendInquiry = createServerFn({ method: "POST" })
       },
       body: JSON.stringify({
         from: "HAYYA Inquiries <onboarding@resend.dev>",
-        to: ["rezk@hayya-eg.com"],
+        to: ["kareem147j@gmail.com"], // TODO: change back to rezk@hayya-eg.com after verifying hayya-eg.com in Resend
         reply_to: data.email,
         subject: `New Inquiry: ${data.companyName} (${data.country})`,
         html: buildEmailHtml(data),
