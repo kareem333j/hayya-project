@@ -62,7 +62,11 @@ export function InquiryForm() {
       await sendInquiry({ data: parsed.data });
       setStatus("sent");
       setValues(empty);
-    } catch {
+    } catch (e: any) {
+      console.error("Form error:", e);
+      setErrors({ 
+        message: e?.message || "حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى." 
+      } as any);
       setStatus("error");
     }
   };
