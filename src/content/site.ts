@@ -36,7 +36,7 @@ export const company = {
    * Inquiry form destination. When email is enabled, the form
    * sends a notification to the company email above.
    */
-  formEndpoint: null as string | null,
+  formEndpoint: "https://eznrppezsdwkdoumxtfw.supabase.co/functions/v1/send-inquiry",
 };
 
 /* ------------------------------------------------------------------ */
