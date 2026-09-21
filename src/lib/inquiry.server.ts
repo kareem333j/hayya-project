@@ -99,7 +99,7 @@ export const sendInquiry = createServerFn({ method: "POST" })
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: "HAYYA Inquiries <inquiries@hayya-eg.com>",
+        from: "HAYYA Inquiries <onboarding@resend.dev>",
         to: ["rezk@hayya-eg.com"],
         reply_to: data.email,
         subject: `New Inquiry: ${data.companyName} (${data.country})`,
