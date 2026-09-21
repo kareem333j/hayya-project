@@ -9,21 +9,115 @@ import { cn } from "@/lib/utils";
 import { brandButton } from "@/components/BrandButton";
 import { Image } from "@/components/Image";
 
-const title = "Our Services | HAYYA — Agricultural Export, Trade, Industrial Supplies & Real Estate";
+/* ─── SEO constants ─────────────────────────────────────── */
+const SITE_URL = "https://hayya-eg.com";
+const PAGE_URL = `${SITE_URL}/services`;
+const OG_IMAGE = `${SITE_URL}/og-image.jpg`;
+const title =
+  "HAYYA Services | Agricultural Export, Trade, Contracting & Real Estate Egypt";
 const description =
-  "HAYYA offers premium Egyptian agricultural exports, import/export trade solutions, general supplies & industrial products, and professional real estate investment services.";
+  "HAYYA offers 5 comprehensive services: Egyptian agricultural exports (produce), import/export trade, construction contracting & material supplies, general industrial supplies, and real estate investment consulting in Egypt. ISO 9001:2015 certified.";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
       { title },
       { name: "description", content: description },
+      {
+        name: "keywords",
+        content:
+          "HAYYA services Egypt, Egyptian agricultural export company, import export services Egypt, construction contracting Egypt, industrial supplies Egypt, real estate investment Egypt, B2B trade Egypt, Egyptian export company services, ISO certified Egypt company",
+      },
+      { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1" },
+
+      /* ── Open Graph ── */
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: PAGE_URL },
+      { property: "og:image", content: OG_IMAGE },
+      { property: "og:image:alt", content: "HAYYA Services — Egyptian Export & Trade" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:type", content: "image/jpeg" },
+
+      /* ── Twitter ── */
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: title },
+      { name: "twitter:description", content: description },
+      { name: "twitter:image", content: OG_IMAGE },
     ],
-    links: [{ rel: "canonical", href: "/services" }],
+    links: [{ rel: "canonical", href: PAGE_URL }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": `${PAGE_URL}/#webpage`,
+              url: PAGE_URL,
+              name: title,
+              description,
+              inLanguage: ["en", "ar"],
+              breadcrumb: {
+                "@type": "BreadcrumbList",
+                itemListElement: [
+                  { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+                  { "@type": "ListItem", position: 2, name: "Services", item: PAGE_URL },
+                ],
+              },
+            },
+            {
+              "@type": "Service",
+              name: "Egyptian Agricultural Products Export",
+              provider: { "@type": "Organization", name: "HAYYA", url: SITE_URL },
+              description:
+                "Premium Egyptian agricultural produce exports including mangoes, grapes, pomegranates, tomatoes, bell peppers for international B2B buyers.",
+              areaServed: "Worldwide",
+              serviceType: "Agricultural Export",
+            },
+            {
+              "@type": "Service",
+              name: "Import & Export Trade Services",
+              provider: { "@type": "Organization", name: "HAYYA", url: SITE_URL },
+              description:
+                "Comprehensive import/export operations connecting Egyptian suppliers with international markets, including customs clearance and trade facilitation.",
+              areaServed: "Worldwide",
+              serviceType: "Import Export Trade",
+            },
+            {
+              "@type": "Service",
+              name: "Contracting & Construction Material Supplies",
+              provider: { "@type": "Organization", name: "HAYYA", url: SITE_URL },
+              description:
+                "Professional construction contracting and reliable supply of materials for residential, commercial, and government projects across Egypt.",
+              areaServed: "Egypt",
+              serviceType: "Construction Contracting",
+            },
+            {
+              "@type": "Service",
+              name: "General Supplies & Industrial Products",
+              provider: { "@type": "Organization", name: "HAYYA", url: SITE_URL },
+              description:
+                "Wide range of high-quality industrial materials and general supplies for commercial and operational needs.",
+              areaServed: "Egypt",
+              serviceType: "Industrial Supplies",
+            },
+            {
+              "@type": "Service",
+              name: "Real Estate Marketing & Investment",
+              provider: { "@type": "Organization", name: "HAYYA", url: SITE_URL },
+              description:
+                "Strategic property marketing, investment consulting, and deal facilitation for residential and commercial real estate in Egypt.",
+              areaServed: "Egypt",
+              serviceType: "Real Estate Investment",
+            },
+          ],
+        }),
+      },
+    ],
   }),
   component: () => (
     <LanguageProvider>

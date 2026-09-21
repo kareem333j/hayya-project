@@ -74,29 +74,97 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   );
 }
 
+/* ─── Global SEO constants ──────────────────────────────────────── */
+const SITE_URL = "https://hayya-eg.com";
+const SITE_NAME = "HAYYA";
+const DEFAULT_TITLE = "HAYYA | Egyptian Agricultural Exports & B2B Trade";
+const DEFAULT_DESC =
+  "HAYYA connects Egyptian producers with global B2B buyers — premium agricultural exports, industrial supplies, contracting, and real estate investment. ISO 9001:2015 certified. El Shorouk City, Cairo.";
+const OG_IMAGE = `${SITE_URL}/og-image.jpg`;
+const OG_IMAGE_ALT = "HAYYA — Egyptian Agricultural Exports | hayya-eg.com";
+
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "HAYYA | Egyptian Agricultural Products Export" },
-      { name: "author", content: "HAYYA" },
+
+      /* ── Core SEO ──────────────────────────── */
+      { title: DEFAULT_TITLE },
+      { name: "description", content: DEFAULT_DESC },
+      { name: "author", content: SITE_NAME },
+      { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
+      { name: "googlebot", content: "index, follow" },
+      { name: "keywords", content: "Egyptian agricultural export, fresh produce Egypt, B2B export Egypt, HAYYA, mangoes Egypt export, grapes Egypt, pomegranates Egypt, Egyptian exporter, import export Egypt, real estate Egypt, industrial supplies Egypt, ISO 9001 Egypt" },
+
+      /* ── Open Graph (Facebook, WhatsApp, LinkedIn, Telegram) ── */
       { property: "og:type", content: "website" },
-      { property: "og:site_name", content: "HAYYA" },
+      { property: "og:site_name", content: SITE_NAME },
+      { property: "og:title", content: DEFAULT_TITLE },
+      { property: "og:description", content: DEFAULT_DESC },
+      { property: "og:url", content: SITE_URL },
+      { property: "og:image", content: OG_IMAGE },
+      { property: "og:image:alt", content: OG_IMAGE_ALT },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:type", content: "image/jpeg" },
+      { property: "og:locale", content: "en_US" },
+      { property: "og:locale:alternate", content: "ar_EG" },
+
+      /* ── Twitter / X Card ──────────────────── */
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:site", content: "@hayyaegypt" },
+      { name: "twitter:creator", content: "@hayyaegypt" },
+      { name: "twitter:title", content: DEFAULT_TITLE },
+      { name: "twitter:description", content: DEFAULT_DESC },
+      { name: "twitter:image", content: OG_IMAGE },
+      { name: "twitter:image:alt", content: OG_IMAGE_ALT },
+
+      /* ── Geo / Business ────────────────────── */
+      { name: "geo.region", content: "EG-C" },
+      { name: "geo.placename", content: "El Shorouk City, Cairo, Egypt" },
+      { name: "geo.position", content: "30.1181;31.6033" },
+      { name: "ICBM", content: "30.1181, 31.6033" },
+
+      /* ── PWA / Browser ─────────────────────── */
       { name: "theme-color", content: "#152a45" },
+      { name: "msapplication-TileColor", content: "#152a45" },
+      { name: "application-name", content: SITE_NAME },
+
+      /* ── Verification placeholders (fill in after registering) ── */
+      // { name: "google-site-verification", content: "YOUR_CODE_HERE" },
     ],
     links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
+      { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/favicon.png", type: "image/png" },
+      { rel: "apple-touch-icon", href: "/favicon.png" },
+      { rel: "canonical", href: SITE_URL },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;0,900;1,600&family=Outfit:wght@300;400;500;600;700;800&family=Tajawal:wght@300;400;500;700;800&display=swap",
+      },
+    ],
+    scripts: [
+      /* ── WebSite Schema (enables Google Sitelinks Search Box) ── */
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: SITE_NAME,
+          url: SITE_URL,
+          description: DEFAULT_DESC,
+          potentialAction: {
+            "@type": "SearchAction",
+            target: {
+              "@type": "EntryPoint",
+              urlTemplate: `${SITE_URL}/products?q={search_term_string}`,
+            },
+            "query-input": "required name=search_term_string",
+          },
+        }),
       },
     ],
   }),
