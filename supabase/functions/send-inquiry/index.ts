@@ -4,7 +4,8 @@ declare var Deno: {
 };
 
 const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
-const TO_EMAIL = "rezk@hayya-eg.com";
+// const TO_EMAIL = "rezk@hayya-eg.com";
+const TO_EMAIL = "kareem147j@gmail.com";
 const FROM_EMAIL = "inquiries@hayya-eg.com"; // must be a verified domain in Resend
 
 const corsHeaders = {
