@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { z } from "zod";
 import { AlertCircle, CheckCircle2, Loader2 } from "lucide-react";
-import { company } from "@/content/site";
 import { useLanguage } from "@/lib/language";
 import { cn } from "@/lib/utils";
 import { brandButton } from "@/components/BrandButton";
+import { sendInquiry } from "@/lib/inquiry.server";
 
 type FieldKey =
   "name" | "companyName" | "email" | "country" | "phone" | "product" | "quantity" | "message";
@@ -57,22 +57,9 @@ export function InquiryForm() {
       return;
     }
     setErrors({});
-
-    // No email/backend service is connected yet. When `company.formEndpoint`
-    // is set, the validated payload is posted there.
-    if (!company.formEndpoint) {
-      setStatus("sent");
-      return;
-    }
-
     setStatus("sending");
     try {
-      const res = await fetch(company.formEndpoint, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(parsed.data),
-      });
-      if (!res.ok) throw new Error(String(res.status));
+      await sendInquiry({ data: parsed.data });
       setStatus("sent");
       setValues(empty);
     } catch {
