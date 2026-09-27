@@ -22,7 +22,7 @@ export function Services() {
           <p className="mt-6 text-lg leading-relaxed text-muted-foreground">{c.sub}</p>
         </Reveal>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:gap-10">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-10">
           {c.items.map((item, i) => (
             <Reveal
               key={item.id}

@@ -83,9 +83,9 @@ export const sendInquiry = createServerFn({ method: "POST" })
   .handler(async ({ data }) => {
     // Access env depending on runtime (Cloudflare Workers vs Node)
     const apiKey =
-      (typeof process !== "undefined" && process.env?.RESEND_API_KEY) ||
+      (typeof process !== "undefined" && process.env?.["RESEND_API_KEY"]) ||
       // @ts-expect-error — available in Cloudflare Workers context
-      (typeof globalThis.__env__ !== "undefined" && globalThis.__env__?.RESEND_API_KEY) ||
+      (typeof globalThis.__env__ !== "undefined" && globalThis.__env__?.["RESEND_API_KEY"]) ||
       "";
 
     if (!apiKey) {

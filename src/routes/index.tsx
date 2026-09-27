@@ -220,7 +220,7 @@ function HomePage() {
         <PromoVideo />
         <Process />
         <WhyHayya />
-        <OurProjects />
+        {/* <OurProjects /> removed as requested */}
         <Partnerships />
         <GlobalMarkets />
         <CtaBand />

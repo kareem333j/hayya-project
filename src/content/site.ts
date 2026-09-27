@@ -242,26 +242,34 @@ export const copy = {
         },
         {
           id: "import-export",
-          title: "Import & Commercial Agencies",
-          desc: "Facilitating international trade through reliable import operations and acting as trusted commercial agents for global brands.",
-          cta: "Our Projects",
-          link: "/#projects",
+          title: "Import & Export",
+          desc: "Comprehensive import/export operations connecting Egyptian suppliers with global markets. Sheet steel (Saaj) to Africa, agricultural crops to Qatar, equipment from Australia, chemicals to USA, plastics from China, and fruits to Europe.",
+          cta: "Learn More",
+          link: "/services",
           image: "/services/import_export.jpg"
+        },
+        {
+          id: "contracting",
+          title: "Contracting & Engineering",
+          desc: "Engineering consultations, construction supervision and civil-defense handovers for landmark projects including Hazm Mall, Lusail Marina Twin Towers, Qatar Stock Exchange and more.",
+          cta: "Learn More",
+          link: "/services",
+          image: "/service-contracting.jpg"
         },
         {
           id: "industrial",
           title: "General Supplies & Industrial Products",
-          desc: "Sourcing and supplying high-quality industrial materials and general supplies to meet diverse commercial and operational needs.",
-          cta: "Our Projects",
-          link: "/#projects",
+          desc: "Export-grade pallets (10,000+ delivered), construction materials, fire system pipes & alarms, all types of plastics, and all industrial materials — sourced and delivered to specification.",
+          cta: "Learn More",
+          link: "/services",
           image: "/services/industrial_supplies.jpg"
         },
         {
           id: "real-estate",
           title: "Real Estate Marketing & Investment",
-          desc: "Expert real estate services, offering premium property marketing, investment consulting, and development solutions in Egypt.",
-          cta: "Our Projects",
-          link: "/#projects",
+          desc: "Helping clients own units in Emaar Misr towers, Mountain View, Palm Hills New Cairo, and Nasr City. Best location, best price, best payment plan — residential, touristic, commercial, or hotel.",
+          cta: "Learn More",
+          link: "/services",
           image: "/services/real_estate.jpg"
         }
       ]
@@ -444,26 +452,34 @@ export const copy = {
         },
         {
           id: "import-export",
-          title: "خدمات الاستيراد والتوكيلات التجارية",
-          desc: "تسهيل التجارة الدولية من خلال عمليات استيراد موثوقة والعمل كوكلاء تجاريين موثوقين للعلامات التجارية العالمية.",
-          cta: "مشاريعنا",
-          link: "/#projects",
+          title: "الاستيراد والتصدير",
+          desc: "عمليات استيراد وتصدير شاملة — تصدير الصاج لأفريقيا، محاصيل لقطر، معدات من أستراليا، كيماويات لأمريكا، بلاستيك من الصين، فاكهة لأوروبا.",
+          cta: "اعرف أكثر",
+          link: "/services",
           image: "/services/import_export.jpg"
+        },
+        {
+          id: "contracting",
+          title: "المقاولات والهندسة",
+          desc: "استشارات هندسية وإشراف بناء وتسليم دفاع مدني لمشاريع كبرى — هازم مول وبرجا لوسيل وبورصة قطر وسفارة الصومال في الدوحة.",
+          cta: "اعرف أكثر",
+          link: "/services",
+          image: "/service-contracting.jpg"
         },
         {
           id: "industrial",
           title: "التوريدات العامة والمنتجات الصناعية",
-          desc: "توريد وإمداد المواد الصناعية عالية الجودة والتوريدات العامة لتلبية الاحتياجات التجارية والتشغيلية المتنوعة.",
-          cta: "مشاريعنا",
-          link: "/#projects",
+          desc: "باليتات بمواصفات تصدير (10,000+ باليته)\u060c مواد بناء، مواسير وماكينات فاير سيستم وفاير ألارم\u060c جميع أنواع البلاستيك والمواد الصناعية.",
+          cta: "اعرف أكثر",
+          link: "/services",
           image: "/services/industrial_supplies.jpg"
         },
         {
           id: "real-estate",
           title: "التسويق العقاري والاستثمار",
-          desc: "خدمات عقارية متخصصة، نقدم حلول تسويق للعقارات المتميزة، استشارات استثمارية، وحلول تطوير في مصر.",
-          cta: "مشاريعنا",
-          link: "/#projects",
+          desc: "نساعد عملاءنا على امتلاك وحدات في أبراج العالمين ومونتن فيو وبالم هيلز ومدينة نصر — أفضل موقع وأحسن سعر وأفضل طريقة دفع سواء سكنية أو سياحية أو تجارية أو فندقية.",
+          cta: "اعرف أكثر",
+          link: "/services",
           image: "/services/real_estate.jpg"
         }
       ]

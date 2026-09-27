@@ -32,7 +32,7 @@ export function Process() {
           />
           
           {t.process.steps.map((step, i) => {
-            const Icon = stepIcons[i % stepIcons.length];
+            const Icon = stepIcons[i % stepIcons.length] as React.ElementType;
             return (
               <Reveal as="li" key={step.n} delay={i * 120} className="group relative ps-16 md:ps-0 md:pt-16">
                 
