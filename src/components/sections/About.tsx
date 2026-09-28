@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
-import { ArrowRight, Check, X, ZoomIn, FileText } from "lucide-react";
+import { ArrowRight, Check, X, ZoomIn, FileText, Calendar, Building, Users, Award, MapPin } from "lucide-react";
 import aboutImage from "@/assets/about-packing.jpg";
 import { useLanguage } from "@/lib/language";
 import { Reveal } from "@/components/Reveal";
@@ -120,6 +120,32 @@ export function About() {
             </div>
           </Reveal>
         </div>
+
+        {/* Company Stats Grid */}
+        {t.about.stats && (
+          <div className="container-hayya mt-20 border-t border-border/50 pt-16">
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+              {t.about.stats.map((stat: { value: string; label: string; sub?: string }, i: number) => {
+                const icons = [Calendar, Building, Users, Award, MapPin];
+                const Icon = icons[i % icons.length];
+                return (
+                  <Reveal key={i} delay={i * 100} className="group flex flex-col items-center text-center rounded-3xl bg-white p-6 sm:p-8 shadow-[0_4px_20px_rgba(0,0,0,0.03)] ring-1 ring-border/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgba(212,175,55,0.12)] hover:ring-gold/30">
+                    <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-gold/10 text-gold transition-all duration-300 group-hover:bg-gold group-hover:text-white group-hover:scale-110">
+                      <Icon className="h-7 w-7" />
+                    </div>
+                    <div className="flex flex-col items-center">
+                      <p className="font-display text-[2rem] font-bold text-navy mb-2 group-hover:text-gold transition-colors duration-300">{stat.value}</p>
+                      <p className="text-sm sm:text-base font-bold text-navy mb-2">{stat.label}</p>
+                      {stat.sub && (
+                        <p className="text-[0.8rem] text-muted-foreground leading-relaxed max-w-[150px]">{stat.sub}</p>
+                      )}
+                    </div>
+                  </Reveal>
+                );
+              })}
+            </div>
+          </div>
+        )}
       </section>
 
       {isViewerOpen && typeof document !== 'undefined' && createPortal(

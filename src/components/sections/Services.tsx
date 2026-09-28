@@ -4,12 +4,60 @@ import { Reveal } from "@/components/Reveal";
 import { cn } from "@/lib/utils";
 import { ArrowRight, ArrowLeft } from "lucide-react";
 import { Link } from "@tanstack/react-router";
+import { useState } from "react";
+import { Info } from "lucide-react";
+import {
+  tradeInfoItems,
+  contractingInfoItems,
+  suppliesInfoItems,
+  realEstateProperties,
+  InfoModal,
+  type InfoItem
+} from "@/components/ServiceInfoModal";
 
 export function Services() {
   const { lang } = useLanguage();
   const c = copy[lang].services;
   const isRtl = lang === "ar";
   const Arrow = isRtl ? ArrowLeft : ArrowRight;
+
+  const [openModal, setOpenModal] = useState<string | null>(null);
+
+  const getInfoKey = (id: string) => {
+    if (id === "import-export") return "trade";
+    if (id === "contracting") return "contracting";
+    if (id === "industrial") return "supplies";
+    if (id === "real-estate") return "realestate";
+    return null;
+  };
+
+  const getModalData = (key: string) => {
+    if (key === "trade") return { items: tradeInfoItems[lang], isRealEstate: false };
+    if (key === "contracting") return { items: contractingInfoItems[lang], isRealEstate: false };
+    if (key === "supplies") return { items: suppliesInfoItems[lang], isRealEstate: false };
+    if (key === "realestate") return { items: [] as InfoItem[], isRealEstate: true };
+    return { items: [] as InfoItem[], isRealEstate: false };
+  };
+
+  const getModalTitle = (key: string) => {
+    const titles: Record<string, Record<string, string>> = {
+      trade: { en: "Trade Operations", ar: "عمليات التجارة" },
+      contracting: { en: "Our Engineering Projects", ar: "مشاريعنا الهندسية" },
+      supplies: { en: "Supply Details", ar: "تفاصيل التوريدات" },
+      realestate: { en: "Real Estate Projects", ar: "المشاريع العقارية" },
+    };
+    return titles[key]?.[lang] ?? "";
+  };
+
+  const getInfoLabel = (key: string) => {
+    const labels: Record<string, Record<string, string>> = {
+      trade: { en: "Trade Operations", ar: "عمليات التجارة" },
+      contracting: { en: "Our Projects", ar: "مشاريعنا" },
+      supplies: { en: "Supply Details", ar: "تفاصيل التوريدات" },
+      realestate: { en: "View Properties", ar: "المشاريع العقارية" },
+    };
+    return labels[key]?.[lang] ?? "";
+  };
 
   return (
     <section id="services" className="border-y border-border bg-secondary py-20 md:py-28 lg:py-32 overflow-hidden">
@@ -49,7 +97,7 @@ export function Services() {
                 <p className="text-muted-foreground leading-relaxed flex-1 text-base">
                   {item.desc}
                 </p>
-                <div className="mt-8 pt-6 border-t border-border/60">
+                <div className="mt-8 pt-6 border-t border-border/60 flex flex-wrap gap-4 items-center justify-between">
                   <Link
                     to={item.link.split('#')[0] || "/"}
                     {...(item.link.split('#')[1] ? { hash: item.link.split('#')[1] } : {})}
@@ -60,11 +108,33 @@ export function Services() {
                       <Arrow className={cn("h-4 w-4 transition-transform", isRtl ? "group-hover/btn:-translate-x-1" : "group-hover/btn:translate-x-1")} />
                     </span>
                   </Link>
+                  {getInfoKey(item.id) && (
+                    <button
+                      onClick={() => setOpenModal(getInfoKey(item.id)!)}
+                      className="inline-flex h-10 items-center justify-center gap-2 rounded-xl border border-gold/30 bg-gold/5 px-4 text-xs font-semibold text-navy transition hover:bg-gold/10 hover:border-gold"
+                    >
+                      <Info className="h-3.5 w-3.5 text-gold" />
+                      {getInfoLabel(getInfoKey(item.id)!)}
+                    </button>
+                  )}
                 </div>
               </div>
             </Reveal>
           ))}
         </div>
+
+        {openModal && (
+          <InfoModal
+            isOpen={!!openModal}
+            onClose={() => setOpenModal(null)}
+            title={getModalTitle(openModal)}
+            items={getModalData(openModal).items}
+            isRealEstate={getModalData(openModal).isRealEstate}
+            realEstateItems={realEstateProperties[lang]}
+            lang={lang}
+            closeLabel={lang === "ar" ? "إغلاق" : "Close"}
+          />
+        )}
       </div>
     </section>
   );

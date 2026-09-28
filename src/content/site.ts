@@ -220,6 +220,13 @@ export const copy = {
         "Confirms that your trust in us is built on professional and documented foundations.",
       ],
       conclusion: "We grow with your trust, and the best is yet to come, God willing! 🚀",
+      stats: [
+        { value: "+10", label: "Years Experience" },
+        { value: "+50", label: "Projects Delivered", sub: "Contracting, consulting & supplies" },
+        { value: "+50", label: "Clients", sub: "Inside & outside Egypt" },
+        { value: "Track Record", label: "Qatari & Egyptian Entities", sub: "Most of our previous work" },
+        { value: "HQ", label: "El Shorouk, Cairo", sub: "Current company headquarters" },
+      ]
     },
     products: {
       label: "Our Products",
@@ -381,7 +388,7 @@ export const copy = {
       },
     },
     footer: {
-      desc: "Egyptian agricultural export company connecting quality-focused Egyptian produce with international B2B buyers.",
+      desc: "Egyptian company providing comprehensive services in import and export, general supplies, contracting, and real estate investment.",
       nav: "Navigation",
       products: "Products",
       contact: "Contact",
@@ -430,6 +437,13 @@ export const copy = {
         "يؤكد أن ثقتكم بنا مبنية على أسس احترافية وموثقة.",
       ],
       conclusion: "نحن نكبر بثقتكم، والقادم أفضل بإذن الله! 🚀",
+      stats: [
+        { value: "+10", label: "سنوات خبرة" },
+        { value: "+50", label: "مشروع منفذ", sub: "مقاولات واستشارات وتوريدات" },
+        { value: "+50", label: "عميل", sub: "داخل وخارج مصر" },
+        { value: "سابقة أعمال", label: "منشآت قطرية ومصرية", sub: "أغلب أعمالنا السابقة" },
+        { value: "المقر الرئيسي", label: "مدينة الشروق، القاهرة", sub: "مقر الشركة الحالي" },
+      ]
     },
     products: {
       label: "منتجاتنا",
@@ -567,7 +581,7 @@ export const copy = {
       },
     },
     footer: {
-      desc: "شركة مصرية للتصدير الزراعي تربط المنتجات المصرية عالية الجودة بالمشترين الدوليين.",
+      desc: "شركة مصرية رائدة تقدم خدمات متكاملة في مجالات الاستيراد والتصدير، التوريدات العامة، المقاولات، والاستثمار العقاري.",
       nav: "التنقل",
       products: "المنتجات",
       contact: "اتصل بنا",
