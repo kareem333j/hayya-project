@@ -14,6 +14,7 @@ import { CtaBand } from "@/components/sections/CtaBand";
 import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/Footer";
 import { PromoVideo } from "@/components/sections/PromoVideo";
+import { Pesticides } from "@/components/sections/Pesticides";
 
 /* ─── SEO constants ────────────────────────────────────────────────── */
 const SITE_URL = "https://hayya-eg.com";
@@ -217,6 +218,7 @@ function HomePage() {
         <TrustBar />
         <About />
         <Services />
+        <Pesticides />
         <PromoVideo />
         <Process />
         <WhyHayya />
