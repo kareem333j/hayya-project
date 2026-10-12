@@ -126,8 +126,8 @@ export function About() {
           <div className="container-hayya mt-20 border-t border-border/50 pt-16">
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
               {t.about.stats.map((stat: { value: string; label: string; sub?: string }, i: number) => {
-                const icons = [Calendar, Building, Users, Award, MapPin];
-                const Icon = icons[i % icons.length];
+                const icons = [Calendar, Building, Users, Award, MapPin] as const;
+                const Icon = icons[i % icons.length] ?? Award;
                 return (
                   <Reveal key={i} delay={i * 100} className="group flex flex-col items-center text-center rounded-3xl bg-white p-6 sm:p-8 shadow-[0_4px_20px_rgba(0,0,0,0.03)] ring-1 ring-border/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgba(212,175,55,0.12)] hover:ring-gold/30">
                     <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-gold/10 text-gold transition-all duration-300 group-hover:bg-gold group-hover:text-white group-hover:scale-110">

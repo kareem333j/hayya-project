@@ -1,7 +1,60 @@
 import {
-  Container, Wheat, Package, FlaskConical, Boxes, Leaf, Building2, HardHat, PhoneCall, X
+  Container, Wheat, Package, FlaskConical, Boxes, Leaf, Building2, HardHat, PhoneCall, X,
+  Sprout, Bug, ShieldAlert, Download
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+
+/* ─────────────────────────────────────────────────────────────────────
+   PESTICIDES & AGRICULTURAL SOLUTIONS INFO ITEMS
+───────────────────────────────────────────────────────────────────── */
+export const pesticidesInfoItems = {
+  en: [
+    {
+      icon: Sprout,
+      color: "text-emerald-500",
+      bg: "bg-emerald-500/10",
+      label: "Agricultural Pesticides",
+      detail: "Effective treatments including Fungicides, Insecticides, Nematicides, and Herbicides to protect your crops.",
+    },
+    {
+      icon: ShieldAlert,
+      color: "text-blue-500",
+      bg: "bg-blue-500/10",
+      label: "Public Health Pesticides",
+      detail: "Specialized solutions for controlling flying insects, crawling insects, and rodents in urban and public environments.",
+    },
+    {
+      icon: Bug,
+      color: "text-amber-500",
+      bg: "bg-amber-500/10",
+      label: "Key Pests Managed",
+      detail: "Targeted interventions for destructive pests like the Red Palm Weevil, Fruit Fly, and Fall Armyworm.",
+    },
+  ],
+  ar: [
+    {
+      icon: Sprout,
+      color: "text-emerald-500",
+      bg: "bg-emerald-500/10",
+      label: "المبيدات الزراعية",
+      detail: "مبيدات فعالة تشمل المبيدات الفطرية، الحشرية، النيماتودا، ومبيدات الحشائش لحماية محاصيلك.",
+    },
+    {
+      icon: ShieldAlert,
+      color: "text-blue-500",
+      bg: "bg-blue-500/10",
+      label: "مبيدات الصحة العامة",
+      detail: "حلول متخصصة لمكافحة الحشرات الطائرة والزاحفة والقوارض في البيئات الحضرية والعامة.",
+    },
+    {
+      icon: Bug,
+      color: "text-amber-500",
+      bg: "bg-amber-500/10",
+      label: "أهم الآفات المستهدفة",
+      detail: "مكافحة موجهة للآفات المدمرة مثل سوسة النخيل، ذبابة الفاكهة، ودودة الحشد الخريفية.",
+    },
+  ],
+};
 
 /* ─────────────────────────────────────────────────────────────────────
    TRADE INFO ITEMS
@@ -89,11 +142,13 @@ export const realEstateProperties = {
 export type InfoItem = { icon: React.ElementType; color: string; bg: string; label: string; detail: string };
 
 export function InfoModal({
-  isOpen, onClose, title, items, lang, isRealEstate, realEstateItems, closeLabel,
+  isOpen, onClose, title, items, lang, isRealEstate, realEstateItems, isPesticides, closeLabel,
 }: {
   isOpen: boolean; onClose: () => void; title: string;
   items: InfoItem[]; lang: "en" | "ar";
-  isRealEstate?: boolean; realEstateItems?: typeof realEstateProperties.en | undefined; closeLabel: string;
+  isRealEstate?: boolean; realEstateItems?: typeof realEstateProperties.en | undefined;
+  isPesticides?: boolean;
+  closeLabel: string;
 }) {
   if (!isOpen) return null;
   return (
@@ -147,20 +202,44 @@ export function InfoModal({
               </div>
             </div>
           ) : (
-            items.map((item, i) => {
-              const Icon = item.icon;
-              return (
-                <div key={i} className="flex items-start gap-4 rounded-xl border border-border bg-secondary/30 p-4 transition hover:border-gold/30 hover:bg-gold/5">
-                  <div className={cn("flex h-10 w-10 shrink-0 items-center justify-center rounded-xl", item.bg)}>
-                    <Icon className={cn("h-5 w-5", item.color)} />
+            <div className="space-y-4">
+              {items.map((item, i) => {
+                const Icon = item.icon;
+                return (
+                  <div key={i} className="flex items-start gap-4 rounded-xl border border-border bg-secondary/30 p-4 transition hover:border-gold/30 hover:bg-gold/5">
+                    <div className={cn("flex h-10 w-10 shrink-0 items-center justify-center rounded-xl", item.bg)}>
+                      <Icon className={cn("h-5 w-5", item.color)} />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-sm font-bold text-navy mb-1">{item.label}</p>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{item.detail}</p>
+                    </div>
                   </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-sm font-bold text-navy mb-1">{item.label}</p>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{item.detail}</p>
-                  </div>
+                );
+              })}
+              {isPesticides && (
+                <div className="pt-2 flex flex-col sm:flex-row gap-3">
+                  <a
+                    href="/003.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-navy px-4 text-xs font-semibold text-white transition hover:bg-navy/90 hover:scale-[1.01] shadow-sm"
+                  >
+                    <Download className="h-4 w-4 text-gold" />
+                    {lang === "ar" ? "تحميل دليل المنتجات (PDF)" : "Download Products Catalog (PDF)"}
+                  </a>
+                  <a
+                    href="/00.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 inline-flex h-11 items-center justify-center gap-2 rounded-xl border border-navy/30 bg-secondary px-4 text-xs font-semibold text-navy transition hover:bg-navy hover:text-white hover:scale-[1.01]"
+                  >
+                    <Download className="h-4 w-4" />
+                    {lang === "ar" ? "تحميل دليل مكافحة الآفات (PDF)" : "Download Pests Guide (PDF)"}
+                  </a>
                 </div>
-              );
-            })
+              )}
+            </div>
           )}
         </div>
       </div>

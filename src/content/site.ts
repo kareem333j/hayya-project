@@ -248,6 +248,14 @@ export const copy = {
           image: "/services/agricultural_export.jpg"
         },
         {
+          id: "pesticides",
+          title: "Agricultural Solutions — Fertilizers & Pesticides",
+          desc: "Comprehensive solutions for crop protection and public health. Agricultural pesticides, public health solutions, and targeted pest control interventions.",
+          cta: "Explore Solutions",
+          link: "#pesticides",
+          image: "/services/fertilizers_pesticides.jpg"
+        },
+        {
           id: "import-export",
           title: "Import & Export",
           desc: "Comprehensive import/export operations connecting Egyptian suppliers with global markets. Sheet steel (Saaj) to Africa, agricultural crops to Qatar, equipment from Australia, chemicals to USA, plastics from China, and fruits to Europe.",
@@ -463,6 +471,14 @@ export const copy = {
           cta: "عرض المنتجات",
           link: "/products",
           image: "/services/agricultural_export.jpg"
+        },
+        {
+          id: "pesticides",
+          title: "حلول زراعية — الأسمدة والمبيدات",
+          desc: "حلول شاملة لوقاية المحاصيل والصحة العامة — مبيدات زراعية متطورة، مكافحة آفات الصحة العامة، وحلول موجهة للآفات الزراعية المستهدفة.",
+          cta: "استكشف الحلول",
+          link: "#pesticides",
+          image: "/services/fertilizers_pesticides.jpg"
         },
         {
           id: "import-export",

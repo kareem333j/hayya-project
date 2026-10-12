@@ -7,6 +7,7 @@ import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Info } from "lucide-react";
 import {
+  pesticidesInfoItems,
   tradeInfoItems,
   contractingInfoItems,
   suppliesInfoItems,
@@ -24,6 +25,7 @@ export function Services() {
   const [openModal, setOpenModal] = useState<string | null>(null);
 
   const getInfoKey = (id: string) => {
+    if (id === "pesticides") return "pesticides";
     if (id === "import-export") return "trade";
     if (id === "contracting") return "contracting";
     if (id === "industrial") return "supplies";
@@ -32,15 +34,17 @@ export function Services() {
   };
 
   const getModalData = (key: string) => {
-    if (key === "trade") return { items: tradeInfoItems[lang], isRealEstate: false };
-    if (key === "contracting") return { items: contractingInfoItems[lang], isRealEstate: false };
-    if (key === "supplies") return { items: suppliesInfoItems[lang], isRealEstate: false };
-    if (key === "realestate") return { items: [] as InfoItem[], isRealEstate: true };
-    return { items: [] as InfoItem[], isRealEstate: false };
+    if (key === "pesticides") return { items: pesticidesInfoItems[lang], isRealEstate: false, isPesticides: true };
+    if (key === "trade") return { items: tradeInfoItems[lang], isRealEstate: false, isPesticides: false };
+    if (key === "contracting") return { items: contractingInfoItems[lang], isRealEstate: false, isPesticides: false };
+    if (key === "supplies") return { items: suppliesInfoItems[lang], isRealEstate: false, isPesticides: false };
+    if (key === "realestate") return { items: [] as InfoItem[], isRealEstate: true, isPesticides: false };
+    return { items: [] as InfoItem[], isRealEstate: false, isPesticides: false };
   };
 
   const getModalTitle = (key: string) => {
     const titles: Record<string, Record<string, string>> = {
+      pesticides: { en: "Agricultural Solutions — Fertilizers & Pesticides", ar: "حلول زراعية — الأسمدة والمبيدات" },
       trade: { en: "Trade Operations", ar: "عمليات التجارة" },
       contracting: { en: "Our Engineering Projects", ar: "مشاريعنا الهندسية" },
       supplies: { en: "Supply Details", ar: "تفاصيل التوريدات" },
@@ -51,6 +55,7 @@ export function Services() {
 
   const getInfoLabel = (key: string) => {
     const labels: Record<string, Record<string, string>> = {
+      pesticides: { en: "Solutions Details", ar: "تفاصيل الحلول والمبيدات" },
       trade: { en: "Trade Operations", ar: "عمليات التجارة" },
       contracting: { en: "Our Projects", ar: "مشاريعنا" },
       supplies: { en: "Supply Details", ar: "تفاصيل التوريدات" },
@@ -98,24 +103,28 @@ export function Services() {
                   {item.desc}
                 </p>
                 <div className="mt-8 pt-6 border-t border-border/60 flex flex-wrap gap-4 items-center justify-between">
-                  <Link
-                    to={item.link.split('#')[0] || "/"}
-                    {...(item.link.split('#')[1] ? { hash: item.link.split('#')[1] } : {})}
-                    className="inline-flex items-center gap-2.5 text-sm font-semibold uppercase tracking-wider text-navy transition-colors hover:text-gold group/btn"
-                  >
-                    {item.cta}
-                    <span className="flex h-10 w-10 items-center justify-center rounded-full bg-secondary transition-all group-hover/btn:bg-gold/10 group-hover/btn:scale-110">
-                      <Arrow className={cn("h-4 w-4 transition-transform", isRtl ? "group-hover/btn:-translate-x-1" : "group-hover/btn:translate-x-1")} />
-                    </span>
-                  </Link>
-                  {getInfoKey(item.id) && (
+                  {getInfoKey(item.id) ? (
+                    // For items with modal (pesticides, import-export, etc.) — CTA opens modal directly
                     <button
                       onClick={() => setOpenModal(getInfoKey(item.id)!)}
-                      className="inline-flex h-10 items-center justify-center gap-2 rounded-xl border border-gold/30 bg-gold/5 px-4 text-xs font-semibold text-navy transition hover:bg-gold/10 hover:border-gold"
+                      className="inline-flex items-center gap-2.5 text-sm font-semibold uppercase tracking-wider text-navy transition-colors hover:text-gold group/btn"
                     >
-                      <Info className="h-3.5 w-3.5 text-gold" />
-                      {getInfoLabel(getInfoKey(item.id)!)}
+                      {item.cta}
+                      <span className="flex h-10 w-10 items-center justify-center rounded-full bg-secondary transition-all group-hover/btn:bg-gold/10 group-hover/btn:scale-110">
+                        <Arrow className={cn("h-4 w-4 transition-transform", isRtl ? "group-hover/btn:-translate-x-1" : "group-hover/btn:translate-x-1")} />
+                      </span>
                     </button>
+                  ) : (
+                    <Link
+                      to={item.link.split('#')[0] || "/"}
+                      {...(item.link.split('#')[1] ? { hash: item.link.split('#')[1] } : {})}
+                      className="inline-flex items-center gap-2.5 text-sm font-semibold uppercase tracking-wider text-navy transition-colors hover:text-gold group/btn"
+                    >
+                      {item.cta}
+                      <span className="flex h-10 w-10 items-center justify-center rounded-full bg-secondary transition-all group-hover/btn:bg-gold/10 group-hover/btn:scale-110">
+                        <Arrow className={cn("h-4 w-4 transition-transform", isRtl ? "group-hover/btn:-translate-x-1" : "group-hover/btn:translate-x-1")} />
+                      </span>
+                    </Link>
                   )}
                 </div>
               </div>
@@ -131,6 +140,7 @@ export function Services() {
             items={getModalData(openModal).items}
             isRealEstate={getModalData(openModal).isRealEstate}
             realEstateItems={realEstateProperties[lang]}
+            isPesticides={getModalData(openModal).isPesticides}
             lang={lang}
             closeLabel={lang === "ar" ? "إغلاق" : "Close"}
           />

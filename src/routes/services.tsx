@@ -7,7 +7,7 @@ import { company } from "@/content/site";
 import {
   ArrowRight, Package, Ship, Building2, HardHat, Boxes,
   Facebook, Instagram, Linkedin, CheckCircle2,
-  Info, X, FlaskConical, Leaf, PhoneCall, Container, Wheat,
+  Info, X, FlaskConical, Leaf, PhoneCall, Container, Wheat, Sprout,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { brandButton } from "@/components/BrandButton";
@@ -15,6 +15,7 @@ import { Image } from "@/components/Image";
 import { useState } from "react";
 
 import {
+  pesticidesInfoItems,
   tradeInfoItems,
   contractingInfoItems,
   suppliesInfoItems,
@@ -94,6 +95,15 @@ export const Route = createFileRoute("/services")({
             },
             {
               "@type": "Service",
+              name: "Agricultural Solutions — Fertilizers & Pesticides",
+              provider: { "@type": "Organization", name: "HAYYA", url: SITE_URL },
+              description:
+                "Comprehensive crop protection and public health solutions: fungicides, insecticides, nematicides, herbicides, and targeted pest control interventions.",
+              areaServed: "Worldwide",
+              serviceType: "Agricultural Solutions",
+            },
+            {
+              "@type": "Service",
               name: "Import & Export Trade Services",
               provider: { "@type": "Organization", name: "HAYYA", url: SITE_URL },
               description:
@@ -144,8 +154,8 @@ export const Route = createFileRoute("/services")({
 const copy = {
   en: {
     eyebrow: "What We Do",
-    title: "Five Pillars of Excellence",
-    sub: "HAYYA delivers end-to-end solutions across agricultural exports, global trade logistics, contracting & supplies, general supplies & industrial products, and premium real estate investment — driven by integrity and global ambition.",
+    title: "Six Pillars of Excellence",
+    sub: "HAYYA delivers end-to-end solutions across agricultural exports, fertilizers & crop protection solutions, global trade logistics, contracting & supplies, general supplies & industrial products, and premium real estate investment — driven by integrity and global ambition.",
     services: [
       {
         id: "agri",
@@ -165,6 +175,27 @@ const copy = {
         iconBg: "bg-gold/15 text-gold border-gold/30",
         badge: "Agricultural Export",
         hasInfo: false,
+      },
+      {
+        id: "pesticides",
+        icon: Sprout,
+        label: "Agricultural Solutions",
+        title: "Fertilizers & Pesticides for Crop Protection & Public Health",
+        desc: "We provide comprehensive solutions for crop protection and public health. Our products ensure maximum yield and safety against agricultural pests and public health threats. Click \"Solutions Details\" to explore our core pillars.",
+        points: [
+          "Agricultural Pesticides: Fungicides, Insecticides, Nematicides, Herbicides",
+          "Public Health Pesticides: Flying insects, crawling insects & rodents control",
+          "Targeted Pest Control: Red Palm Weevil, Fruit Fly & Fall Armyworm",
+          "Complete product catalogs and technical pest control guides available",
+        ],
+        cta: "Explore Solutions",
+        href: "/#pesticides",
+        accent: "from-emerald-500/10 to-teal-50/20",
+        iconBg: "bg-emerald-500/10 text-emerald-600 border-emerald-500/20",
+        badge: "Crop Protection",
+        hasInfo: true,
+        infoKey: "pesticides",
+        infoLabel: "Solutions Details",
       },
       {
         id: "trade",
@@ -266,8 +297,8 @@ const copy = {
   },
   ar: {
     eyebrow: "ماذا نفعل",
-    title: "خمسة محاور للتميز",
-    sub: "تقدم هيّا حلولاً متكاملة في التصدير الزراعي والتجارة الدولية والمقاولات والتوريدات والتوريدات العامة والمنتجات الصناعية والاستثمار العقاري — مدفوعةً بالنزاهة والطموح العالمي.",
+    title: "ستة محاور للتميز",
+    sub: "تقدم هيّا حلولاً متكاملة في التصدير الزراعي وحلول الأسمدة ووقاية المحاصيل والتجارة الدولية والمقاولات والتوريدات والتوريدات العامة والمنتجات الصناعية والاستثمار العقاري — مدفوعةً بالنزاهة والطموح العالمي.",
     services: [
       {
         id: "agri",
@@ -287,6 +318,27 @@ const copy = {
         iconBg: "bg-gold/15 text-gold border-gold/30",
         badge: "تصدير زراعي",
         hasInfo: false,
+      },
+      {
+        id: "pesticides",
+        icon: Sprout,
+        label: "حلول زراعية متكاملة",
+        title: "الأسمدة والمبيدات لحماية المحاصيل والصحة العامة",
+        desc: "نقدم حلولاً شاملة لحماية المحاصيل والصحة العامة. تضمن منتجاتنا أعلى إنتاجية وأمان ضد الآفات الزراعية ومهددات الصحة العامة. اضغط على \"تفاصيل الحلول والمبيدات\" للاطلاع على التفاصيل.",
+        points: [
+          "المبيدات الزراعية: الفطرية والحشرية والنيماتودا ومبيدات الحشائش",
+          "مبيدات الصحة العامة: مكافحة الحشرات الطائرة والزاحفة والقوارض",
+          "مكافحة الآفات المستهدفة: سوسة النخيل وذبابة الفاكهة ودودة الحشد",
+          "أدلة فنية متخصصة وكتالوجات كاملة للمنتجات ومكافحة الآفات متاحة للتحميل",
+        ],
+        cta: "استكشف الحلول",
+        href: "/#pesticides",
+        accent: "from-emerald-500/10 to-teal-50/20",
+        iconBg: "bg-emerald-500/10 text-emerald-600 border-emerald-500/20",
+        badge: "وقاية المحاصيل",
+        hasInfo: true,
+        infoKey: "pesticides",
+        infoLabel: "تفاصيل الحلول والمبيدات",
       },
       {
         id: "trade",
@@ -412,6 +464,7 @@ const socialLinks = [
 
 const serviceImages: Record<string, string> = {
   agri: "/service-agri.jpg",
+  pesticides: "/services/fertilizers_pesticides.jpg",
   trade: "/service-trade.jpg",
   realestate: "/service-realestate.jpg",
   contracting: "/service-contracting.jpg",
@@ -426,15 +479,17 @@ function ServicesPage() {
   const [openModal, setOpenModal] = useState<string | null>(null);
 
   const getModalData = (key: string) => {
-    if (key === "trade") return { items: tradeInfoItems[lang], isRealEstate: false };
-    if (key === "contracting") return { items: contractingInfoItems[lang], isRealEstate: false };
-    if (key === "supplies") return { items: suppliesInfoItems[lang], isRealEstate: false };
-    if (key === "realestate") return { items: [] as InfoItem[], isRealEstate: true };
-    return { items: [] as InfoItem[], isRealEstate: false };
+    if (key === "pesticides") return { items: pesticidesInfoItems[lang], isRealEstate: false, isPesticides: true };
+    if (key === "trade") return { items: tradeInfoItems[lang], isRealEstate: false, isPesticides: false };
+    if (key === "contracting") return { items: contractingInfoItems[lang], isRealEstate: false, isPesticides: false };
+    if (key === "supplies") return { items: suppliesInfoItems[lang], isRealEstate: false, isPesticides: false };
+    if (key === "realestate") return { items: [] as InfoItem[], isRealEstate: true, isPesticides: false };
+    return { items: [] as InfoItem[], isRealEstate: false, isPesticides: false };
   };
 
   const getModalTitle = (key: string) => {
     const titles: Record<string, Record<string, string>> = {
+      pesticides: { en: "Agricultural Solutions — Fertilizers & Pesticides", ar: "حلول زراعية — الأسمدة والمبيدات" },
       trade: { en: "Trade Operations", ar: "عمليات التجارة" },
       contracting: { en: "Our Engineering Projects", ar: "مشاريعنا الهندسية" },
       supplies: { en: "Supply Details", ar: "تفاصيل التوريدات" },
@@ -668,6 +723,7 @@ function ServicesPage() {
             lang={lang}
             isRealEstate={modalData.isRealEstate}
             realEstateItems={modalData.isRealEstate ? realEstateProperties[lang] : undefined}
+            isPesticides={modalData.isPesticides}
             closeLabel={c.infoModal.close}
           />
         );
